@@ -3,7 +3,7 @@ package com.example.ilkut.iskibris;
 import android.content.Context;
 import android.graphics.Bitmap;
 
-public class JobListing extends BaseItem {
+public class JobListing{
     private String jobTitle;
     private String description;
     private String pubDate;
@@ -27,9 +27,10 @@ public class JobListing extends BaseItem {
     private String jobCategory;
     private String filled;
 
+    private Context mContext;
+
 
     public JobListing(Context context) {
-        super(context);
         this.description = "";
         this.postID = "";
         this.jobTitle = "";
@@ -39,9 +40,8 @@ public class JobListing extends BaseItem {
         this.companyTagline = "";
         this.companyVideo = "";
         this.companyTwitter = "";
-
-        super.ImageLink = "";
-
+        this.companyLogoLink = "";
+        //this.companyLogo = null;
         this.companyDescription = "";
         this.companyFacebook = "";
         this.companyGoogle = "";
@@ -52,6 +52,8 @@ public class JobListing extends BaseItem {
         this.jobType = "";
         this.jobCategory = "";
         this.filled = "";
+
+        mContext = context;
     }
 
     public String getFilled() {
@@ -118,14 +120,21 @@ public class JobListing extends BaseItem {
         this.companyLinkedin += companyLinkedin;
     }
 
-    /**
+    public String getCompanyLogoLink() {
+        return companyLogoLink;
+    }
+
+    public void appendCompanyLogoLink(String companyLogo) {
+        this.companyLogoLink += companyLogo;
+    }
+
+    /***
      * Set the company logo manually, does not download the image from the companyLogoLink
      * Use setCompanyLogoFromURL with  the companyLogoLink as the parameter to download and set the
      * company logo from the companyLogoLink
-     *
      * @param setCompanyLogo Company logo to be set as Bitmap
      */
-    public void setCompanyLogo(Bitmap setCompanyLogo) {
+    public void setCompanyLogo(Bitmap setCompanyLogo){
         companyLogo = setCompanyLogo;
     }
 
@@ -187,6 +196,14 @@ public class JobListing extends BaseItem {
 
     public void appendDescription(String description) {
         this.description += description;
+    }
+
+    public String getPostID() {
+        return postID;
+    }
+
+    public void appendPostID(String jobID) {
+        this.postID += jobID;
     }
 
     public String getJobTitle() {

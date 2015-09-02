@@ -25,6 +25,8 @@
     <string name="response_no_user"> İşlem gerçekleştirilirken bir hata sonucu yanlış bilgiler kullanılmış. İşlem başarısız oldu, lütfen daha sonra tekrar deneyiniz. </string>
     <string name="error_word"> Hata </string>
 
+    <string name = "loading_word">Yükleniyor&#8230;</string>
+
     <string name="null_pointer_exception"> İşlem sırasında bir değer ayarlanamadığı için bir hata ile karşılaşıldı. Lütfen daha sonra tekrar deneyiniz. </string>
     <string name="io_exception"> İşlem sırasında değerlerini giriş/çıkışı işlemleri sırasında hata çıktı. Lütfen daha sonra tekrar deneyiniz. </string>
     <string name="xml_pull_parser_exception"> Sunucudan alınan değerler işlenirken bir hata ile karşılaşıldı. Lütfen daha sonra tekrar deneyiniz. </string>

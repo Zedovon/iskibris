@@ -1,6 +1,7 @@
 package com.example.ilkut.iskibris;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
@@ -32,11 +33,17 @@ public class UserResumesOperations {
     private Response.Listener<String> mResponse;
     private Response.ErrorListener mErrorResponse;
     private ArrayList<UserResume> mUserResumesCache;
+    private ProgressDialog mPDialog;
 
     public UserResumesOperations(Context mContext, String URL, ArrayList<UserResume> userResumesCache) {
         this.mContext = mContext;
         this.URL = URL;
         this.mUserResumesCache = userResumesCache;
+
+            mPDialog = new ProgressDialog(mContext);
+            mPDialog.setMessage(mContext.getString(R.string.loading_word));
+            mPDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+
     }
 
     /**
@@ -55,12 +62,18 @@ public class UserResumesOperations {
         mErrorResponse = mErrorListener;
     }
 
-    public void onRequestResponse(String response, ResponseOperations.ImageResponseListener mListener) {
+    public void onRequestResponse(String response, ResponseOperations.ImageResponseListener mListener, Boolean useProgressDialog) {
         ProcessXMLUserResumes(response);
         fetchUserResumeImages(mListener);
+        if(useProgressDialog){
+            mPDialog.cancel();
+        }
     }
 
-    public void fetchUserResumes(final HashMap<String, String> params) {
+    public void fetchUserResumes(final HashMap<String, String> params, Boolean useProgressDialog) {
+        if(useProgressDialog){
+            mPDialog.show();
+        }
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
                 mResponse,
@@ -260,7 +273,7 @@ public class UserResumesOperations {
 
     private void fetchUserResumeImages(final ResponseOperations.ImageResponseListener mListener){
         for(final UserResume i: mUserResumesCache){
-            if (i.getCandidatePhotoLink() != null || !(i.getCandidatePhotoLink().trim().equals(""))) {
+            if (i.getCandidatePhotoLink() != null && !(i.getCandidatePhotoLink().trim().equals(""))) {
                 ImageRequest request = new ImageRequest(i.getCandidatePhotoLink(),
                         new Response.Listener<Bitmap>() {
                             @Override

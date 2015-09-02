@@ -42,7 +42,7 @@ public class FragUserResumes extends android.support.v4.app.Fragment {
         params.put("username", mPrefs.getString("uname", null));
         //TODO: What will happen if the username is null? (= You'll get an ERROR_POST_FAILED)
 
-        final UserResumesOperations mOperations = new UserResumesOperations(mContext.getApplicationContext(), URL, SingletonCache.getInstance().getUserResumesCache());
+        final UserResumesOperations mOperations = new UserResumesOperations(mContext, URL, SingletonCache.getInstance().getUserResumesCache());
         mOperations.setResponseListener(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -70,7 +70,7 @@ public class FragUserResumes extends android.support.v4.app.Fragment {
         if (SingletonCache.getInstance().getUserResumesCache().isEmpty()) {
             mOperations.fetchUserResumes(params);   //Fetch the user resumes, and put them into the SingletonCache
         } else {
-            Toast.makeText(mContext.getApplicationContext(), "User Resumes Loaded", Toast.LENGTH_LONG).show();
+            Toast.makeText(mContext, "User Resumes Loaded", Toast.LENGTH_LONG).show();
             populateListView(SingletonCache.getInstance().getUserResumesCache());
         }
 
@@ -81,7 +81,7 @@ public class FragUserResumes extends android.support.v4.app.Fragment {
 
     public void populateListView(ArrayList<UserResume> userResumes) {
         if (userResumes != null && !(userResumes.isEmpty())) {
-            UserResumesAdapter mAdapter = new UserResumesAdapter(mContext.getApplicationContext(), userResumes);
+            UserResumesAdapter mAdapter = new UserResumesAdapter(mContext, userResumes);
             mainListView.setAdapter(mAdapter);
             mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

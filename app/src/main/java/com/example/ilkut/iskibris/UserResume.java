@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 
 import java.util.ArrayList;
 
-public class UserResume {
+public class UserResume{
 
     private String description;
     private String pubDate;

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -39,7 +40,7 @@ public class FragBlog extends android.support.v4.app.Fragment {
         blogPubDate = (TextView) view.findViewById(R.id.blogPubDate);
         blogPostsListView = (ListView) view.findViewById(R.id.blogListView);
 
-        mDialog = new AlertDialog.Builder(mContext.getApplicationContext()).create();
+        mDialog = new AlertDialog.Builder(mContext).create();
         mDialog.setTitle(getString(R.string.warning_word));
 
         final BlogPostsOperations mOperations = new BlogPostsOperations(getActivity());
@@ -62,13 +63,13 @@ public class FragBlog extends android.support.v4.app.Fragment {
             }
         });
 
-//        if (SingletonCache.getInstance().getBlogPostsCache().isEmpty()) {
+        if (SingletonCache.getInstance().getBlogPostsCache().isEmpty()) {                                           //Fetch
             mOperations.fetchBlogPosts();   //Fetch the blog posts, and put them into the SingletonCache
-//        }
-        /*else {
-            Toast.makeText(mContext.getApplicationContext(), "Blog Posts Loaded", Toast.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText(mContext, "Blog Posts Loaded", Toast.LENGTH_LONG).show();        //Load
             populateListView(SingletonCache.getInstance().getBlogPostsCache());
-        }*/
+        }
 
         return view;
     }
@@ -76,7 +77,7 @@ public class FragBlog extends android.support.v4.app.Fragment {
 
     public void populateListView(ArrayList<BlogPost> blogPosts) {
 
-        BlogPostsAdapter mAdapter = new BlogPostsAdapter(getActivity().getApplicationContext(), blogPosts);
+        BlogPostsAdapter mAdapter = new BlogPostsAdapter(getActivity(), blogPosts);
         blogPostsListView.setAdapter(mAdapter);
         blogPostsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

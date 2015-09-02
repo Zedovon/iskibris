@@ -1,6 +1,7 @@
 package com.example.ilkut.iskibris;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
@@ -33,12 +34,18 @@ public class JobListingsOperations {
     private Response.Listener<String> mResponse;
     private Response.ErrorListener mErrorResponse;
     private ArrayList<JobListing> mJobListings;
+    private ProgressDialog mPDialog;
 
 
     public JobListingsOperations(Context mContext, String URL, ArrayList<JobListing> jobListingsCache) {
         this.mContext = mContext;
         this.URL = URL;
         this.mJobListings = jobListingsCache;
+
+            mPDialog = new ProgressDialog(mContext);
+            mPDialog.setMessage(mContext.getString(R.string.loading_word));
+            mPDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+
     }
 
     /**
@@ -57,12 +64,19 @@ public class JobListingsOperations {
         mErrorResponse = mErrorListener;
     }
 
-    public void onRequestResponse(String response, ResponseOperations.ImageResponseListener mListener) {
+    public void onRequestResponse(String response, ResponseOperations.ImageResponseListener mListener, Boolean useProgressDialog) {
         ProcessXMLJobListings(response);
         fetchJobListingImages(mListener);
+        if(useProgressDialog){
+            mPDialog.cancel();
+        }
     }
 
-    public void fetchJobListings(final HashMap<String, String> params) {
+    public void fetchJobListings(final HashMap<String, String> params, Boolean useProgressDialog) {
+        if(useProgressDialog){
+            mPDialog.show();
+        }
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
                 mResponse
                 , mErrorResponse) {
@@ -218,7 +232,7 @@ public class JobListingsOperations {
 
     private void fetchJobListingImages(final ResponseOperations.ImageResponseListener mListener){
         for(final JobListing i: mJobListings){         //Use the mJobListings here.
-            if (i.getCompanyLogoLink() != null || !(i.getCompanyLogoLink().trim().equals(""))) {
+            if (i.getCompanyLogoLink() != null && !(i.getCompanyLogoLink().trim().equals(""))) {
                 ImageRequest request = new ImageRequest(i.getCompanyLogoLink(),
                         new Response.Listener<Bitmap>() {
                             @Override

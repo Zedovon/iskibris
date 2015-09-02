@@ -51,7 +51,7 @@ public class FragJobListings extends android.support.v4.app.Fragment {
         }
 
 
-        final JobListingsOperations mOperations = new JobListingsOperations(mContext.getApplicationContext(), URL, SingletonCache.getInstance().getJobListingsCache());
+        final JobListingsOperations mOperations = new JobListingsOperations(mContext, URL, SingletonCache.getInstance().getJobListingsCache());
         mOperations.setResponseListener(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -95,7 +95,7 @@ public class FragJobListings extends android.support.v4.app.Fragment {
         if (SingletonCache.getInstance().getJobListingsCache().isEmpty()) {
             mOperations.fetchJobListings(params);   //Fetch the job listings, and put them into the SingletonCache
         } else {
-            Toast.makeText(mContext.getApplicationContext(), "Job Listings Loaded", Toast.LENGTH_LONG).show();
+            Toast.makeText(mContext, "Job Listings Loaded", Toast.LENGTH_LONG).show();
             populateListView(SingletonCache.getInstance().getJobListingsCache());
         }
 
@@ -107,7 +107,7 @@ public class FragJobListings extends android.support.v4.app.Fragment {
     public void populateListView(ArrayList<JobListing> jobListings) {
 
         if (jobListings != null && !(jobListings.isEmpty())) {
-            JobListingsAdapter mAdapter = new JobListingsAdapter(mContext.getApplicationContext(), jobListings);
+            JobListingsAdapter mAdapter = new JobListingsAdapter(mContext, jobListings);
             mainListView.setAdapter(mAdapter);
             mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

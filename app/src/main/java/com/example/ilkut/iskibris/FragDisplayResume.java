@@ -135,7 +135,7 @@ public class FragDisplayResume extends android.support.v4.app.Fragment {
             }
 
         } catch (Exception e) {
-            Toast.makeText(getActivity().getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
 

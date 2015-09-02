@@ -1,6 +1,7 @@
 package com.example.ilkut.iskibris;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 
@@ -23,9 +24,14 @@ public class BlogPostsOperations {
     private Context mContext;
     private Response.Listener<String> mResponse;
     private Response.ErrorListener mErrorResponse;
+    private ProgressDialog mPDialog;
 
     public BlogPostsOperations(Context mContext) {
         this.mContext = mContext;
+
+            mPDialog = new ProgressDialog(mContext);
+            mPDialog.setMessage(mContext.getString(R.string.loading_word));
+            mPDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
     }
 
     /**
@@ -46,12 +52,19 @@ public class BlogPostsOperations {
         mErrorResponse = mErrorListener;
     }
 
-    public void onRequestResponse(String response) {
+    public void onRequestResponse(String response, Boolean useProgressDialog) {
         ProcessXMLBlogPosts(mContext, response);
+        if(useProgressDialog){
+            mPDialog.cancel();
+        }
     }
 
 
-    public void fetchBlogPosts() {
+    public void fetchBlogPosts(Boolean useProgressDialog) {
+        if(useProgressDialog){
+            mPDialog.show();
+        }
+
         String url = mContext.getResources().getString(R.string.URL_BLOG_POSTS);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -86,7 +99,7 @@ public class BlogPostsOperations {
             factory.setNamespaceAware(true);
             XmlPullParser xpp = factory.newPullParser();
 
-            xpp.setInput(new StringReader(XMLText));
+            xpp.setInput(new StringReader(XMLText));        //TODO: oh really?
             int eventType = xpp.getEventType();
             BlogPost tempAddBlogPost;
 

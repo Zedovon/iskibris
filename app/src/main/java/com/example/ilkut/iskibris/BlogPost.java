@@ -13,22 +13,6 @@ public class BlogPost {
         this.postID = "";
     }
 
-    public void setPostContent(String postContent) {
-        this.postContent = postContent;
-    }
-
-    public void setPostID(String postID) {
-        this.postID = postID;
-    }
-
-    public void setPostPubDate(String postPubDate) {
-        this.postPubDate = postPubDate;
-    }
-
-    public void setPostTitle(String postTitle) {
-        this.postTitle = postTitle;
-    }
-
     public String getPostContent() {
         return postContent;
     }

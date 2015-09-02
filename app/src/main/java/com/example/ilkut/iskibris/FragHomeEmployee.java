@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,15 +23,17 @@ public class FragHomeEmployee extends android.support.v4.app.Fragment {
     ListView mainListView;
     AlertDialog mDialog;
     Context mContext;
+    SwipeRefreshLayout mRefreshLayout;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_home_employee, container, false);
         mainListView = (ListView) view.findViewById(R.id.homeEmployeeMainListView);
+        mRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.mRefreshLayout);
         mContext = getActivity();
 
-        mDialog = new AlertDialog.Builder(mContext.getApplicationContext()).create();
+        mDialog = new AlertDialog.Builder(mContext).create();
         mDialog.setTitle(getString(R.string.warning_word));
 
         String URL = getResources().getString(R.string.URL_JOB_LISTINGS);
@@ -40,7 +43,7 @@ public class FragHomeEmployee extends android.support.v4.app.Fragment {
 
         //TODO: What will happen if the username is null?  ->  That's not the way it works, you know that.
 
-        final JobListingsOperations mOperations = new JobListingsOperations(mContext.getApplicationContext(), URL, SingletonCache.getInstance().getJobListingsCache());
+        final JobListingsOperations mOperations = new JobListingsOperations(mContext, URL, SingletonCache.getInstance().getJobListingsCache());
         mOperations.setResponseListener(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -49,26 +52,44 @@ public class FragHomeEmployee extends android.support.v4.app.Fragment {
                     public void onImageReceived() {
                         populateListView(SingletonCache.getInstance().getJobListingsCache());
                     }
-                });
+                }, true);
             }
         });
         mOperations.setResponseErrorListener(new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-            ResponseOperations.onRequestErrorRespone(mContext, error, new ResponseOperations.TryAgainAction() {
-                @Override
-                public void onTryAgain() {
-                    mOperations.fetchJobListings(params);
-                }
-            });
+                ResponseOperations.onRequestErrorRespone(mContext, error, new ResponseOperations.TryAgainAction() {
+                    @Override
+                    public void onTryAgain() {
+                        mOperations.fetchJobListings(params, true);
+                    }
+                });
             }
         });
 
 
+        mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mOperations.setResponseListener(new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        mOperations.onRequestResponse(response, new ResponseOperations.ImageResponseListener() {
+                            @Override
+                            public void onImageReceived() {
+                                populateListView(SingletonCache.getInstance().getJobListingsCache());
+                            }
+                        }, false);
+                    }
+                });
+                mOperations.fetchJobListings(params, false);
+            }
+        });
+
         if (SingletonCache.getInstance().getJobListingsCache().isEmpty()) {
-            mOperations.fetchJobListings(params);   //Fetch the job listings, and put them into the SingletonCache
+            mOperations.fetchJobListings(params, true);   //Fetch the job listings, and put them into the SingletonCache
         } else {
-            Toast.makeText(mContext.getApplicationContext(), "Job Listings Loaded", Toast.LENGTH_LONG).show();
+            Toast.makeText(mContext, "Job Listings Loaded", Toast.LENGTH_LONG).show();
             populateListView(SingletonCache.getInstance().getJobListingsCache());
         }
 
@@ -77,11 +98,9 @@ public class FragHomeEmployee extends android.support.v4.app.Fragment {
 
 
 
-
-
     public void populateListView(ArrayList<JobListing> jobListings) {
         if (jobListings != null && !(jobListings.isEmpty())) {
-            JobListingsAdapter mAdapter = new JobListingsAdapter(mContext.getApplicationContext(), jobListings);
+            JobListingsAdapter mAdapter = new JobListingsAdapter(mContext, jobListings);
             mainListView.setAdapter(mAdapter);
             mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
