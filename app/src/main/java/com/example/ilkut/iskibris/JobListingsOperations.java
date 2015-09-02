@@ -44,7 +44,7 @@ public class JobListingsOperations {
 
             mPDialog = new ProgressDialog(mContext);
             mPDialog.setMessage(mContext.getString(R.string.loading_word));
-            mPDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            mPDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
     }
 

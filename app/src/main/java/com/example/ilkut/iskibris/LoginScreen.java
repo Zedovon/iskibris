@@ -258,11 +258,13 @@ public class LoginScreen extends Activity {
         credsEditor.putString("role", loginMessage);        //TODO: CAREFUL! Get the user role here!
         credsEditor.apply();
 
+        loginProgress.cancel();
+
         Intent loginButton;
         loginButton = new Intent(this, MainArea.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(loginButton);
 
-    }                                                     //Login step 3/part 3
+    }                                                     //Login step 3/part 1
 
     //endregion
 

@@ -30,7 +30,7 @@ public class FragHomeEmployee extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_home_employee, container, false);
         mainListView = (ListView) view.findViewById(R.id.homeEmployeeMainListView);
-        mRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.mRefreshLayout);
+        mRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.homeEmployeeRefreshLayout);
         mContext = getActivity();
 
         mDialog = new AlertDialog.Builder(mContext).create();
@@ -68,6 +68,10 @@ public class FragHomeEmployee extends android.support.v4.app.Fragment {
         });
 
 
+
+
+
+
         mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -77,14 +81,33 @@ public class FragHomeEmployee extends android.support.v4.app.Fragment {
                         mOperations.onRequestResponse(response, new ResponseOperations.ImageResponseListener() {
                             @Override
                             public void onImageReceived() {
+                                mRefreshLayout.setRefreshing(false);
                                 populateListView(SingletonCache.getInstance().getJobListingsCache());
                             }
                         }, false);
                     }
                 });
+                mOperations.setResponseErrorListener(new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        mRefreshLayout.setRefreshing(false);
+                        ResponseOperations.onRequestErrorRespone(mContext, error, new ResponseOperations.TryAgainAction() {
+                            @Override
+                            public void onTryAgain() {
+                                mRefreshLayout.setRefreshing(true);
+                                mOperations.fetchJobListings(params, false);
+                            }
+                        });
+                    }
+                });
                 mOperations.fetchJobListings(params, false);
             }
         });
+
+
+
+
+
 
         if (SingletonCache.getInstance().getJobListingsCache().isEmpty()) {
             mOperations.fetchJobListings(params, true);   //Fetch the job listings, and put them into the SingletonCache

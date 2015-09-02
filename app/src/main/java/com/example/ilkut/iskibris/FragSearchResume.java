@@ -52,6 +52,7 @@ public class FragSearchResume extends android.support.v4.app.Fragment {
 
         final String URL = getResources().getString(R.string.URL_SEARCH_USER_RESUMES);
         final UserResumesOperations mOperations = new UserResumesOperations(mContext, URL, SingletonCache.getInstance().getSearchUserResumesCache());
+
         mOperations.setResponseListener(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -60,7 +61,7 @@ public class FragSearchResume extends android.support.v4.app.Fragment {
                     public void onImageReceived() {
                         mListener.setExternalFragment(FragSearchJob.FragListener.ExternalFragment.SEARCH_RESUMES_RESULTS);
                     }
-                });
+                }, true);
             }
         });
 
@@ -73,7 +74,7 @@ public class FragSearchResume extends android.support.v4.app.Fragment {
 
                 params.put("region", resumeLocationSpinner.getSelectedItem().toString());       //TODO: Slugs!
                 params.put("jobCat", resumeJobCatSpinner.getSelectedItem().toString());
-                mOperations.fetchUserResumes(params);
+                mOperations.fetchUserResumes(params, true);
                 //TODO: Do some check to see whether everything is fine
             }
         });

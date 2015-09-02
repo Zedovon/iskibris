@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ public class FragBlog extends android.support.v4.app.Fragment {
     ListView blogPostsListView;
     AlertDialog mDialog;
     Context mContext;
-
+    SwipeRefreshLayout mRefreshLayout;
 
     @Nullable
     @Override
@@ -39,6 +40,7 @@ public class FragBlog extends android.support.v4.app.Fragment {
         blogContent = (TextView) view.findViewById(R.id.blogContent);
         blogPubDate = (TextView) view.findViewById(R.id.blogPubDate);
         blogPostsListView = (ListView) view.findViewById(R.id.blogListView);
+        mRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.fragBlogRefreshLayout);
 
         mDialog = new AlertDialog.Builder(mContext).create();
         mDialog.setTitle(getString(R.string.warning_word));
@@ -47,7 +49,7 @@ public class FragBlog extends android.support.v4.app.Fragment {
         mOperations.setResponseListener(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                mOperations.onRequestResponse(response);
+                mOperations.onRequestResponse(response, true);
                 populateListView(SingletonCache.getInstance().getBlogPostsCache());
             }
         });
@@ -57,17 +59,49 @@ public class FragBlog extends android.support.v4.app.Fragment {
                 ResponseOperations.onRequestErrorRespone(mContext, error, new ResponseOperations.TryAgainAction() {
                     @Override
                     public void onTryAgain() {
-                        mOperations.fetchBlogPosts();
+                        mOperations.fetchBlogPosts(true);
                     }
                 });
             }
         });
 
+
+
+
+
+
+        mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mOperations.setResponseListener(new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        mOperations.onRequestResponse(response, false);
+                    }
+                });
+                mOperations.setResponseErrorListener(new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        mRefreshLayout.setRefreshing(false);
+                        ResponseOperations.onRequestErrorRespone(mContext, error, new ResponseOperations.TryAgainAction() {
+                            @Override
+                            public void onTryAgain() {
+                                mRefreshLayout.setRefreshing(true);
+                                mOperations.fetchBlogPosts(false);
+                            }
+                        });
+                    }
+                });
+                mOperations.fetchBlogPosts(false);
+            }
+        });
+
+
         if (SingletonCache.getInstance().getBlogPostsCache().isEmpty()) {                                           //Fetch
-            mOperations.fetchBlogPosts();   //Fetch the blog posts, and put them into the SingletonCache
+            mOperations.fetchBlogPosts(true);   //Fetch the blog posts, and put them into the SingletonCache
         }
         else {
-            Toast.makeText(mContext, "Blog Posts Loaded", Toast.LENGTH_LONG).show();        //Load
+            Toast.makeText(mContext, "Blog Posts Loaded", Toast.LENGTH_LONG).show();                                //Load
             populateListView(SingletonCache.getInstance().getBlogPostsCache());
         }
 

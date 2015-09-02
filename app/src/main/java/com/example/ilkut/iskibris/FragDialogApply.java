@@ -85,7 +85,7 @@ public class FragDialogApply extends android.support.v4.app.Fragment{
         mOperations.setResponseListener(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                mOperations.onRequestResponse(response, null);
+                mOperations.onRequestResponse(response, null, true);
                 populateSpinner();
 
             }
@@ -118,7 +118,7 @@ public class FragDialogApply extends android.support.v4.app.Fragment{
             });
         }
 
-        mOperations.fetchUserResumes(params);
+        mOperations.fetchUserResumes(params, true);
 
     }
 

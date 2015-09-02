@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,12 +25,14 @@ public class FragUserResumes extends android.support.v4.app.Fragment {
     ListView mainListView;
     AlertDialog mDialog;
     Context mContext;
+    SwipeRefreshLayout mRefreshLayout;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_user_resumes, container, false);
         mainListView = (ListView) view.findViewById(R.id.fragUserResumesListView);
+        mRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.fragUserResumesRefreshLayout);
         mContext = getActivity();
 
         SharedPreferences mPrefs = mContext.getSharedPreferences("PREFS", Context.MODE_PRIVATE);
@@ -51,7 +54,7 @@ public class FragUserResumes extends android.support.v4.app.Fragment {
                             public void onImageReceived() {
                                 populateListView(SingletonCache.getInstance().getUserResumesCache());
                             }
-                        });
+                        }, true);
             }
         });
         mOperations.setResponseErrorListener(new Response.ErrorListener() {
@@ -60,15 +63,48 @@ public class FragUserResumes extends android.support.v4.app.Fragment {
                 ResponseOperations.onRequestErrorRespone(mContext, error, new ResponseOperations.TryAgainAction() {
                     @Override
                     public void onTryAgain() {
-                        mOperations.fetchUserResumes(params);
+                        mOperations.fetchUserResumes(params, true);
                     }
                 });
             }
         });
 
 
+        mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mOperations.setResponseListener(new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        mOperations.onRequestResponse(response, new ResponseOperations.ImageResponseListener() {
+                            @Override
+                            public void onImageReceived() {
+                                populateListView(SingletonCache.getInstance().getUserResumesCache());
+                                mRefreshLayout.setRefreshing(false);
+                            }
+                        }, false);
+                    }
+                });
+                mOperations.setResponseErrorListener(new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        mRefreshLayout.setRefreshing(false);
+                        ResponseOperations.onRequestErrorRespone(mContext, error, new ResponseOperations.TryAgainAction() {
+                            @Override
+                            public void onTryAgain() {
+                                mRefreshLayout.setRefreshing(true);
+                                mOperations.fetchUserResumes(params, false);
+                            }
+                        });
+                    }
+                });
+                mOperations.fetchUserResumes(params, false);
+            }
+        });
+
+
         if (SingletonCache.getInstance().getUserResumesCache().isEmpty()) {
-            mOperations.fetchUserResumes(params);   //Fetch the user resumes, and put them into the SingletonCache
+            mOperations.fetchUserResumes(params, true);   //Fetch the user resumes, and put them into the SingletonCache
         } else {
             Toast.makeText(mContext, "User Resumes Loaded", Toast.LENGTH_LONG).show();
             populateListView(SingletonCache.getInstance().getUserResumesCache());

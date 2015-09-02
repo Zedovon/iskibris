@@ -79,7 +79,7 @@ public class FragSearchJob extends android.support.v4.app.Fragment {
                     public void onImageReceived() {
                         mListener.setExternalFragment(FragListener.ExternalFragment.SEARCH_JOBS_RESULTS);
                     }
-                });
+                }, true);
             }
         });
 
@@ -93,7 +93,7 @@ public class FragSearchJob extends android.support.v4.app.Fragment {
                 params.put("region", regionSpinner.getSelectedItem().toString());
                 params.put("jobCat", jobCategoriesSpinner.getSelectedItem().toString());
                 params.put("jobType", getSlug());       //TODO: Slug problem!
-                mOperations.fetchJobListings(params);
+                mOperations.fetchJobListings(params, true);
                 //TODO: Do some check to see whether everything is fine
 
             }
