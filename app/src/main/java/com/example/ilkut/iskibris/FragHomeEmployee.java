@@ -1,0 +1,120 @@
+package com.example.ilkut.iskibris;
+
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class FragHomeEmployee extends android.support.v4.app.Fragment {
+    ListView mainListView;
+    AlertDialog mDialog;
+    Context mContext;
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.frag_home_employee, container, false);
+        mainListView = (ListView) view.findViewById(R.id.homeEmployeeMainListView);
+        mContext = getActivity();
+
+        mDialog = new AlertDialog.Builder(mContext.getApplicationContext()).create();
+        mDialog.setTitle(getString(R.string.warning_word));
+
+        String URL = getResources().getString(R.string.URL_JOB_LISTINGS);
+        final HashMap<String, String> params = new HashMap<>();
+        //TODO: Well, do something about it?
+        params.put("username", "iskibris");
+
+        //TODO: What will happen if the username is null?  ->  That's not the way it works, you know that.
+
+        final JobListingsOperations mOperations = new JobListingsOperations(mContext.getApplicationContext(), URL, SingletonCache.getInstance().getJobListingsCache());
+        mOperations.setResponseListener(new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                mOperations.onRequestResponse(response, new ResponseOperations.ImageResponseListener() {
+                    @Override
+                    public void onImageReceived() {
+                        populateListView(SingletonCache.getInstance().getJobListingsCache());
+                    }
+                });
+            }
+        });
+        mOperations.setResponseErrorListener(new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            ResponseOperations.onRequestErrorRespone(mContext, error, new ResponseOperations.TryAgainAction() {
+                @Override
+                public void onTryAgain() {
+                    mOperations.fetchJobListings(params);
+                }
+            });
+            }
+        });
+
+
+        if (SingletonCache.getInstance().getJobListingsCache().isEmpty()) {
+            mOperations.fetchJobListings(params);   //Fetch the job listings, and put them into the SingletonCache
+        } else {
+            Toast.makeText(mContext.getApplicationContext(), "Job Listings Loaded", Toast.LENGTH_LONG).show();
+            populateListView(SingletonCache.getInstance().getJobListingsCache());
+        }
+
+        return view;
+    }
+
+
+
+
+
+    public void populateListView(ArrayList<JobListing> jobListings) {
+        if (jobListings != null && !(jobListings.isEmpty())) {
+            JobListingsAdapter mAdapter = new JobListingsAdapter(mContext.getApplicationContext(), jobListings);
+            mainListView.setAdapter(mAdapter);
+            mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    onListItemClicked(position);
+                }
+            });
+        }
+
+    }
+    public void onListItemClicked(int itemPosition) {
+        String itemID = SingletonCache.getInstance().getJobListingByPosition(itemPosition).getPostID();
+
+        if (itemID != null) {
+            for (JobListing i : SingletonCache.getInstance().getJobListingsCache()) {
+                if (i.getPostID().equals(itemID)) {
+                    FragDisplayJobListing mDisplay = new FragDisplayJobListing();
+                    Bundle mBundle = new Bundle();
+                    mBundle.putString("postID", itemID);
+                    mDisplay.setArguments(mBundle);
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, mDisplay).addToBackStack(null).commit();
+                    break;
+                }
+            }
+        } else {
+            mDialog.setMessage(mContext.getString(R.string.unexpected_error));
+            mDialog.setButton(DialogInterface.BUTTON_NEUTRAL, getResources().getText(R.string.ok_button_word), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    mDialog.cancel();
+                }
+            });
+        }
+    }
+
+}

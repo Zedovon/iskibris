@@ -1,0 +1,15 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="login_layout_forgot_password"> 40sp </dimen>
+    <dimen name="login_layout_edit_text"> 40sp </dimen>
+    <dimen name="login_layout_bottom_texts"> 40sp </dimen>
+    <dimen name="login_layout_remember_me"> 35sp </dimen>
+    <dimen name = "login_layout_button"> 37sp </dimen>
+
+    <dimen name="main_list_view_text_size"> 30sp </dimen>
+
+    <dimen name="login_layout_margin"> 100dp </dimen>
+
+</resources>

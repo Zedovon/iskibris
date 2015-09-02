@@ -1,0 +1,210 @@
+<resources>
+    <string name="send_job_id">SEND_JOB_ID</string>
+    <string name="language"> Turkish </string>
+
+    <string name="app_name">isKibris</string>
+    <string name="app_name_formatted">İş Kıbrıs</string>
+    <string name="action_settings">Ayarlar</string>
+
+    <string name="URL_ACCOUNT_LOGIN">http://iskibris.innoviadigital.com/api-account-login/</string>
+    <string name="URL_ACCOUNT_SIGNUP">http://iskibris.innoviadigital.com/api-account-sign-up/</string>
+    <string name="URL_JOB_LISTINGS">http://iskibris.innoviadigital.com/api-job-listings-feed/</string>
+    <string name="URL_USER_RESUMES">http://iskibris.innoviadigital.com/api-user-resumes-feed/</string>
+    <string name="URL_SEARCH_JOBS">http://iskibris.innoviadigital.com/api-search-job-listings/</string>
+    <string name="URL_SEARCH_USER_RESUMES">http://iskibris.innoviadigital.com/api-search-user-resumes/</string>
+    <string name="URL_APPLY_JOB">http://iskibris.innoviadigital.com/api-apply-to-job/</string>
+    <string name="URL_BLOG_POSTS">http://iskibris.innoviadigital.com/api-blog/</string>
+
+    <string name="volley_no_connection_error"> Lütfen internet bağlantınızı kontrol edip bir daha deneyiniz </string>
+    <string name="volley_time_out_error"> Bağlantı zaman aşımına uğramıştır, lütfen tekrar deneyiniz </string>
+    <string name="volley_server_error"> Sunucuya bağlanırken bir hata ile karşılaşıldı. Lütfen daha sonra tekrar deneyiniz. </string>
+    <string name="volley_error"> Bağlantı sırasında bir hata ile karşılaşıldı. Lütfen daha sonra tekrar deneyiniz. </string>
+    <string name="unexpected_error"> Beklenmeyen bir hata ile karşılaşıldı. Lütfen tekrar deneyiniz. </string>
+    <string name="response_error_post_failed"> Sunucuyla iletişim sırasında bir problem ile karşılaşıldı. Lütfen tekrar deneyiniz. </string>
+    <string name="response_error"> İşleminiz gerçekleştirilirken bir hata ile karşılaşıldı, lütfen dah sonra tekrar deneyiniz. </string>
+    <string name="response_no_user"> İşlem gerçekleştirilirken bir hata sonucu yanlış bilgiler kullanılmış. İşlem başarısız oldu, lütfen daha sonra tekrar deneyiniz. </string>
+    <string name="error_word"> Hata </string>
+
+    <string name="null_pointer_exception"> İşlem sırasında bir değer ayarlanamadığı için bir hata ile karşılaşıldı. Lütfen daha sonra tekrar deneyiniz. </string>
+    <string name="io_exception"> İşlem sırasında değerlerini giriş/çıkışı işlemleri sırasında hata çıktı. Lütfen daha sonra tekrar deneyiniz. </string>
+    <string name="xml_pull_parser_exception"> Sunucudan alınan değerler işlenirken bir hata ile karşılaşıldı. Lütfen daha sonra tekrar deneyiniz. </string>
+    <string name="exception"> İşlem sırasında bir hata ile karşılaşıldı. Lütfen daha sonra tekrar deneyiniz. </string>
+
+    <string name="splash_details_changed"> Hesap şifresi değiştirildi. Lütfen tekrar giriş yapınız. </string>
+
+    <string name="warning_word"> Hata </string>
+    <string name="ok_button_word"> Tamam </string>
+    <string name="try_again_word"> Yeniden Dene </string>
+
+
+    <string name="login_username">Kullanıcı Adı</string>
+    <string name="login_password"> Şifre </string>
+    <string name="login_login"> Giriş </string>
+    <string name="login_forgotpassword"> Şifremi unuttum </string>
+    <string name="login_signup"> Kayıt ol </string>
+    <string name="login_no_username"> Lütfen kullanıcı adınızı yazınız </string>
+    <string name="login_no_password"> Lütfen şifrenizi yazınız </string>
+    <string name="login_wrong_info"> Lütfen girmiş olduğunuz bilgileri kontrol ediniz </string>
+    <string name="login_error"> Giriş işlemi sırasında bir hata oluştu, lütfen daha sonra tekrar deneyiniz </string>
+    <string name="login_ok_button"> Tamam </string>
+    <string name="login_warning_word"> Uyarı </string>
+    <string name="login_error_word"> Hata </string>
+    <string name="login_progress"> Giriş işlemi gerçekleştiriliyor&#8230; </string>
+    <string name="login_incorrect_panel_candidate"> Bu hesap bir işçi hesabı değildir, lütfen işveren girişi yapmak için geri tuşuna basıp işveren tuşuna basınız </string>
+    <string name="login_incorrect_panel_employer"> Bu hesap bir işveren hesabı değildir, lütfen işçi girişi yapmak için geri tuşuna basıp işçi tuşuna basınız </string>
+
+    <string name="signup_name"> İsim </string>
+    <string name="signup_surname"> Soyisim </string>
+    <string name="signup_username"> Kullanıcı Adı </string>
+    <string name="signup_email"> E-Mail Adresi </string>
+    <string name="signup_password"> Şifre </string>
+    <string name="signup_password_confirmed"> Şifreyi Onalyayınız </string>
+    <string name="signup_gender"> Cinsiyet </string>
+    <string name="signup_DoB"> Doğum Tarihi </string>
+    <string name="signup_signup"> Kayıt Ol </string>
+    <string name="signup_ok_button"> Tamam </string>
+
+    <string name="signup_error_word"> Hata </string>
+    <string name="signup_warning_word"> Uyarı </string>
+    <string name="signup_success_word"> Kayıt Başarılı </string>
+    <string name="signup_username_exists"> Bu kullanıcı adı başka biri tarafından kullanılmaktadır, lütfen başka bir kullanıcı adı seçiniz </string>
+    <string name="signup_email_exists"> Bu E-Mail adresi başkası tarafından kullanılmaktadır, lütfen başka bir E-Mail adresi giriniz </string>
+    <string name="signup_error"> Kayıt işlemi sırasında bir hata oluştu, lütfen daha sonra tekrar deneyiniz </string>
+    <string name="signup_fill_in"> Lütfen bütün gerekli alanları (yıldızlı) doldurunuz </string>
+    <string name="signup_password_mismatch"> Lütfe Şifre ve Şifreyi Onayla alanlarının eşleşdiğinden emin olunuz </string>
+    <string name="signup_success"> Kayıt olma işlemi başarılı. Bizden gelecek E-Mail için gelen kutunuzu kontrol ediniz</string>
+    <string name="signup_progress"> Kayıt işlemi gerçekleştiriliyor&#8230;</string>
+    <string name="signup_employee_signup"> İşçi Hesabı Kaydı </string>
+    <string name="signup_employer_signup"> İşveren Hesabı Kaydı </string>
+
+    <string name="forgotpassword_email"> E-Mail adresinizi yazınız</string>
+    <string name="forgotpassword_checkmail"> Lütfen e-mail gelen kutunuzu kontrol ediniz, ve bizden gelen maili açıp adımları takip ediniz </string>
+    <string name="forgotpassword_sendButton"> Gönder </string>
+    <string name="forgotpassword_emailHint"> E-Mail </string>
+
+    <string name="employeeButton"> İşçi </string>
+    <string name="employerButton"> İşveren </string>
+
+    <string name="drawer_homepage"> Anasayfa </string>
+    <string name="drawer_search"> Arama </string>
+    <string name="drawer_blog"> Blog </string>
+    <string name="drawer_settings"> Ayarlar </string>
+    <string name="drawer_logout"> Oturumu Kapat </string>
+
+    <string name="e_drawer_job_dashboard"> İş Paneli </string>
+    <string name="e_drawer_all_cv"> Tüm Özgeçmişler </string>
+
+    <string name="c_drawer_manage_resume"> Özgeçmiş Yönetimi </string>
+
+    <string name="main_not_logged_in"> Kullanıcı girişi yapılmamış. Devam etmek için lütfen giriş yapınız </string>
+    <string name="main_ok_button"> Tamam </string>
+
+    <string-array name="drawer_titles_candidate">
+        <item> @string/drawer_homepage </item>
+        <item> @string/drawer_search </item>
+
+        <item> @string/c_drawer_manage_resume </item>
+
+        <item> @string/drawer_blog </item>
+        <item> @string/drawer_settings </item>
+        <item> @string/drawer_logout </item>
+    </string-array>
+    <string-array name="drawer_titles_employer">
+        <item> @string/drawer_homepage </item>
+        <item> @string/drawer_search </item>
+
+        <item> @string/e_drawer_job_dashboard </item>
+        <item> @string/e_drawer_all_cv </item>
+
+        <item> @string/drawer_blog </item>
+        <item> @string/drawer_settings </item>
+        <item> @string/drawer_logout </item>
+    </string-array>
+    <string-array name="drawer_icons_candidate">
+        <item> @drawable/abc_btn_check_to_on_mtrl_015 </item>
+        <item> @drawable/abc_ab_share_pack_mtrl_alpha </item>
+        <item> @drawable/abc_ratingbar_full_material </item>
+        <item> @drawable/ic_drawer </item>
+        <item> @drawable/ic_drawer </item>
+        <item> @drawable/ic_drawer </item>
+    </string-array>
+    <string-array name="drawer_icons_employer">
+        <item> @drawable/abc_btn_check_to_on_mtrl_015 </item>
+        <item> @drawable/abc_ab_share_pack_mtrl_alpha </item>
+        <item> @drawable/abc_ratingbar_full_material </item>
+        <item> @drawable/ic_drawer </item>
+        <item> @drawable/abc_ratingbar_full_material </item>
+        <item> @drawable/ic_drawer </item>
+    </string-array>
+
+    <string name="row_job_listing_filled"> Dolu? </string>
+    <string name="row_job_listing_pud_date"> Gönderim Tarihi </string>
+    <string name="row_job_listing_exp_date"> Bitiş Tarihi </string>
+
+    <string name="row_user_resume_title"> Başlık </string>
+    <string name="row_user_resume_location"> Lokasyon </string>
+    <string name="row_juser_resume_status"> Durum </string>
+
+    <string name="drawer_open"> Menüyü Göster </string>
+    <string name="drawer_close"> Menüyü Gizle </string>
+
+    <string name="actionSearch"> Ara </string>
+    <string name="search_search_button">Ara</string>
+
+    <string name="frag_display_job_apply"> Başvur </string>
+    <string name="frag_display_resume_contact"> İletişim </string>
+
+    <string name="frag_apply_job_send">Gönder</string>
+    <string name="frag_apply_job_success_message">Başvurunuz başarıyla işverene gönderilmiştir.</string>
+    <string name="frag_apply_job_ok_button">Tamam</string>
+
+    <string name="blog_publication_date">Yayınlandığı Tarih:</string>
+
+    <string name="contact_button_text">Gönder</string>
+
+    <string-array name="job_types">
+        <item> Tam Zamanlı </item>
+        <item> Yarı Zamanlı </item>
+        <item> Staj </item>
+        <item> Freelance </item>
+        <item> Geçici </item>
+    </string-array>
+    <string-array name="job_types_slug">
+        <item> tam-zamanli </item>
+        <item> part-time </item>
+        <item> internship </item>
+        <item> freelance </item>
+        <item> temporary </item>
+    </string-array>
+
+    <string-array name="job_regions">
+        <item>Gazimağusa</item>
+        <item>Girne</item>
+        <item>Güzelyurt</item>
+        <item>İskele</item>
+        <item>Lefkoşa</item>
+    </string-array>
+
+    <string-array name="job_categories">
+        <item>Banka/Sigorta</item>
+        <item>Bilişim/Telekom</item>
+        <item>Eğitim/Öğretim</item>
+        <item>Güvenlik</item>
+        <item>Hukuk/Avukat</item>
+        <item>İnsanKaynakları/Yönetim</item>
+        <item>Lojistik/Taşımacılık/Depo</item>
+        <item>Mağaza/Perakende</item>
+        <item>Muhasebe/Finans</item>
+        <item>Mühendislik</item>
+        <item>Pazarlama/Reklam/Tanıtım/Tasarım</item>
+        <item>Sağlık</item>
+        <item>Satış/SatışMüdürü/TeleSatış</item>
+        <item>Sekreter/YöneticiAsistanı</item>
+        <item>Staj/YeniMezun/PartTime</item>
+        <item>Tekstil</item>
+        <item>Turizm/Gıda/Hizmet</item>
+        <item>Üretim/EndüstriyelÜrünler/Otomotiv</item>
+        <item>Yapı/Mimar/İnşaat</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            >
+
+            <TextView
+                android:id="@+id/dBlogTitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:textSize="@dimen/dBlog_title_text_size" />
+
+            <TextView
+                android:id="@+id/dBlogDatePublishedText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/dBlogTitleText"
+                android:layout_alignStart="@+id/dBlogTitleText"
+                android:layout_below="@+id/dBlogTitleText"
+                android:textSize="@dimen/dBlog_date_published_text_size" />
+
+            <TextView
+                android:id="@+id/dBlogContentText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dBlogDatePublishedText"
+                android:textSize="@dimen/dBlog_content_text_size" />
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

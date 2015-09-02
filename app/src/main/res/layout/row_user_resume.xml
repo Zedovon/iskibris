@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/userResumeImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="15dp" />
+
+    <TextView
+        android:id="@+id/userResumeNameText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@id/userResumeImage"
+        android:layout_toRightOf="@id/userResumeImage"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/userResumeIdleTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userResumeNameText"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@id/userResumeImage"
+        android:layout_toRightOf="@id/userResumeImage"
+        android:gravity="end"
+        android:text="@string/row_user_resume_title"
+        android:textSize="15sp" />
+
+    <!-- The first TextView, Title Text, is right below the Name Text, the TextViews that come after it are below the Title Text, to allow flexibility when the Name Text is multilined. -->
+
+    <TextView
+        android:id="@+id/userResumeTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_alignTop="@id/userResumeIdleTitleText"
+        android:layout_toRightOf="@id/userResumeIdleTitleText"
+        android:layout_toEndOf="@id/userResumeIdleTitleText"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/userResumeIdleLocationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/userResumeImage"
+        android:layout_alignStart="@id/userResumeImage"
+        android:layout_below="@id/userResumeTitleText"
+        android:text="@string/row_user_resume_location"
+        android:textSize="15sp" />
+<!-- non-idle texts align top with their idle counterpart, while the idles are below either the Title Text, or if it is the second text, below the first text. Also, the non-idle texts are to the right of their
+idle counterparts, so that they are always to the right of their idle counterparts, which allows for flexibility. -->
+    <TextView
+        android:id="@+id/userResumeLocationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/userResumeTitleText"
+        android:layout_alignTop="@+id/userResumeIdleLocationText"
+        android:layout_toRightOf="@+id/userResumeIdleLocationText"
+        android:layout_toEndOf="@+id/userResumeIdleLocationText" />
+
+    <TextView
+        android:id="@+id/userResumeIdleStatusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/userResumeImage"
+        android:layout_alignStart="@id/userResumeImage"
+        android:layout_below="@id/userResumeIdleLocationText"
+        android:text="@string/row_juser_resume_status"
+
+        android:layout_alignRight="@id/userResumeIdleLocationText"
+        android:layout_alignEnd="@id/userResumeIdleLocationText"
+        android:gravity="end"
+
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/userResumeStatusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/userResumeIdleLocationText"
+        android:layout_alignTop="@+id/userResumeIdleStatusText"
+        android:layout_toRightOf="@+id/userResumeIdleStatusText"
+        android:layout_toEndOf="@+id/userResumeIdleStatusText" />
+
+</RelativeLayout>

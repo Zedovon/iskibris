@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/signUpToolbar"
+        android:background="#2196F3"
+        >
+        </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/signUpToolbar"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/signup_margin"
+                android:layout_marginRight="@dimen/signup_margin"
+                android:hint="@string/signup_name"
+                android:textSize="@dimen/signup_edit_text_size"
+                android:id="@+id/signupNameEdit" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/signup_margin"
+                android:layout_marginRight="@dimen/signup_margin"
+                android:hint="@string/signup_surname"
+                android:textSize="@dimen/signup_edit_text_size"
+                android:id="@+id/signupSurnameEdit" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/signup_margin"
+                android:layout_marginRight="@dimen/signup_margin"
+                android:hint="@string/signup_username"
+                android:textSize="@dimen/signup_edit_text_size"
+                android:id="@+id/signupUsernameEdit"
+                android:inputType="textEmailAddress"
+                android:layout_gravity="center_horizontal" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/signup_margin"
+                android:layout_marginRight="@dimen/signup_margin"
+                android:hint="@string/forgotpassword_email"
+                android:textSize="@dimen/signup_edit_text_size"
+                android:id="@+id/signupEmailEdit"
+                android:inputType="textEmailAddress"
+                />
+
+        <!-- Put a combo box or radio button for gender here -->
+
+
+
+            <!-- And a date of birth here -->
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/signup_margin"
+                android:layout_marginRight="@dimen/signup_margin"
+                android:hint="@string/signup_password"
+                android:textSize="@dimen/signup_edit_text_size"
+                android:id="@+id/signupPasswordEdit"
+                android:inputType="textPassword"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/signup_margin"
+                android:layout_marginRight="@dimen/signup_margin"
+                android:hint="@string/signup_password_confirmed"
+                android:textSize="@dimen/signup_edit_text_size"
+                android:id="@+id/signupConfirmPasswordEdit"
+                android:inputType="textPassword"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:id="@+id/signUpButton"
+                android:layout_height="match_parent"
+                android:text="@string/signup_signup"
+                android:layout_marginLeft="@dimen/signup_margin"
+                android:layout_marginStart="@dimen/signup_margin"
+                android:onClick="signupOnClick"
+                />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

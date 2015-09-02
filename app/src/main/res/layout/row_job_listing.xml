@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/jobListingImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="15dp" />
+
+    <TextView
+        android:id="@+id/jobListingTitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@id/jobListingImage"
+        android:layout_toRightOf="@id/jobListingImage"
+        android:textSize="25sp" />
+
+
+    <TextView
+        android:id="@+id/jobListingFilledIdleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/jobListingTitleText"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@id/jobListingImage"
+        android:layout_toRightOf="@id/jobListingImage"
+        android:gravity="end"
+        android:text="@string/row_job_listing_filled"
+        android:textSize="15sp" />
+
+
+    <TextView
+        android:id="@+id/jobListingIdlePudDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/jobListingImage"
+        android:layout_alignStart="@id/jobListingImage"
+        android:layout_below="@id/jobListingFilledIdleTextView"
+        android:text="@string/row_job_listing_pud_date"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/jobListingPubDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_alignTop="@+id/jobListingIdlePudDate"
+        android:layout_toRightOf="@+id/jobListingIdlePudDate"
+        android:layout_toEndOf="@+id/jobListingIdlePudDate" />
+
+    <TextView
+        android:id="@+id/jobListingIdleExpDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/jobListingImage"
+        android:layout_alignStart="@id/jobListingImage"
+        android:layout_below="@id/jobListingIdlePudDate"
+        android:text="@string/row_job_listing_exp_date"
+
+        android:layout_alignRight="@id/jobListingIdlePudDate"
+        android:layout_alignEnd="@id/jobListingIdlePudDate"
+        android:gravity="end"
+
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/jobListingExpDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_alignTop="@+id/jobListingIdleExpDate"
+        android:layout_toRightOf="@+id/jobListingIdleExpDate"
+        android:layout_toEndOf="@+id/jobListingIdleExpDate" />
+
+
+
+
+
+
+    <ImageView
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_below="@id/jobListingTitleText"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@id/jobListingFilledIdleTextView"
+        android:layout_toRightOf="@id/jobListingFilledIdleTextView"
+        android:id="@+id/filledIconImageView" />
+
+
+</RelativeLayout>

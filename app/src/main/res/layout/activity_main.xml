@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".MainActivity"
+    android:id="@+id/mainLayout"
+    >
+
+
+
+    <!-- Employee Panel -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:background="@color/background_material_dark"
+        android:id="@+id/employeeLayout"
+        android:visibility="visible"
+        >
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/employeeButton"
+            android:text="@string/employeeButton"
+            android:textSize="25sp"
+            android:textAllCaps="false"
+            android:onClick="onEmployeeButtonClicked"
+            />
+    </RelativeLayout>
+
+    <!-- Employer Panel -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:background="@color/background_floating_material_dark"
+        android:id="@+id/employerLayout"
+        android:visibility="visible"
+        >
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/employerButton"
+            android:text="@string/employerButton"
+            android:textSize="25sp"
+            android:onClick="onEmployerButtonClicked"
+            android:visibility="visible"
+            android:textAllCaps="false"
+            />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

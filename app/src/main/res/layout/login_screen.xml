@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Login Screen -->       <!-- [3rd Step] -->
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_floating_material_dark"
+    >
+
+    <RelativeLayout
+        android:id="@+id/loginLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_weight="15"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+
+            <!-- EditText | Username -->
+            <EditText
+                android:id="@+id/usernameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginEnd="@dimen/login_layout_margin"
+                android:layout_marginLeft="@dimen/login_layout_margin"
+                android:layout_marginRight="@dimen/login_layout_margin"
+                android:layout_marginStart="@dimen/login_layout_margin"
+
+                android:hint="@string/login_username"
+                android:inputType="text"
+                android:textSize="@dimen/login_layout_edit_text" />
+
+            <!-- EditText | Password -->
+            <EditText
+                android:id="@+id/passwordEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginEnd="@dimen/login_layout_margin"
+                android:layout_marginLeft="@dimen/login_layout_margin"
+                android:layout_marginRight="@dimen/login_layout_margin"
+                android:layout_marginStart="@dimen/login_layout_margin"
+
+                android:layout_marginTop="10dp"
+                android:hint="@string/login_password"
+                android:inputType="text"
+                android:password="true"
+                android:textSize="@dimen/login_layout_edit_text" />
+
+
+
+            <!-- Login Button -->
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginEnd="@dimen/login_layout_margin"
+                android:layout_marginLeft="@dimen/login_layout_margin"
+                android:layout_marginRight="@dimen/login_layout_margin"
+                android:layout_marginStart="@dimen/login_layout_margin"
+
+                android:layout_marginTop="15dp"
+                android:text="@string/login_login"
+                android:textAllCaps="false"
+                android:onClick="onClickLogin"
+                android:textSize="@dimen/login_layout_button" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/material_blue_grey_900"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        >
+
+        <!-- Forgot Password Text -->
+        <Button
+            android:id="@+id/forgotPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:onClick="onClickForgotPassword"
+            android:text="@string/login_forgotpassword"
+            android:textSize="@dimen/login_layout_bottom_texts"
+            android:layout_weight="5"
+            />
+
+        <!-- Signup Text -->
+        <Button
+            android:id="@+id/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:onClick="onClickSignup"
+            android:text="@string/login_signup"
+            android:textSize="@dimen/login_layout_bottom_texts"
+            android:layout_weight="5"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+
+
+
+
