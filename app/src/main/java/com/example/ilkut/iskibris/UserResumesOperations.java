@@ -19,9 +19,8 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -96,7 +95,6 @@ public class UserResumesOperations {
 
     /**
      * Processes the XML text and adds the items it has found to the UserResumes cache
-     *
      * @param text The XML text to be processed
      */
     public void ProcessXMLUserResumes(String text) {
@@ -111,14 +109,13 @@ public class UserResumesOperations {
 
         try {
             mUserResumesCache.clear();
-            InputStream textStream = new ByteArrayInputStream(text.getBytes());
             XmlPullParserFactory factory;
 
             factory = XmlPullParserFactory.newInstance();
             factory.setNamespaceAware(true);
             XmlPullParser xpp = factory.newPullParser();
 
-            xpp.setInput(textStream, null);
+            xpp.setInput(new StringReader(text));
             int eventType = xpp.getEventType();
             UserResume tempAddResume;
 
@@ -152,8 +149,6 @@ public class UserResumesOperations {
 
                 eventType = xpp.next();
             }
-
-            textStream.close();
 
         } catch (NullPointerException Ne) {
             mDialog.setMessage(mContext.getString(R.string.null_pointer_exception));

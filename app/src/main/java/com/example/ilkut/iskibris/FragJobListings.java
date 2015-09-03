@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -135,7 +134,6 @@ public class FragJobListings extends android.support.v4.app.Fragment {
         if (SingletonCache.getInstance().getJobListingsCache().isEmpty()) {
             mOperations.fetchJobListings(params, true);   //Fetch the job listings, and put them into the SingletonCache
         } else {
-            Toast.makeText(mContext, "Job Listings Loaded", Toast.LENGTH_LONG).show();
             populateListView(SingletonCache.getInstance().getJobListingsCache());
         }
 
@@ -166,13 +164,14 @@ public class FragJobListings extends android.support.v4.app.Fragment {
         if (itemID != null) {
             for (JobListing i : SingletonCache.getInstance().getJobListingsCache()) {
                 if (i.getPostID().equals(itemID)) {
-
-                    FragDisplayJobListing mDisplay = new FragDisplayJobListing();
-                    Bundle mBundle = new Bundle();
-                    mBundle.putString("postID", itemID);
-                    mDisplay.setArguments(mBundle);
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, mDisplay).addToBackStack(null).commit();
-                    break;
+                    if(i.getCompanyLogo() != null) {
+                        FragDisplayJobListing mDisplay = new FragDisplayJobListing();
+                        Bundle mBundle = new Bundle();
+                        mBundle.putString("postID", itemID);
+                        mDisplay.setArguments(mBundle);
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, mDisplay).addToBackStack(null).commit();
+                        break;
+                    }
                 }
             }
         } else {

@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -161,8 +160,6 @@ public class LoginScreen extends Activity {
                     public void onResponse(String response) {
                         loginProgress.hide();
                         loginAccount(response.trim());
-                        //TODO: Test toast
-                        Toast.makeText(LoginScreen.this, response.trim(), Toast.LENGTH_LONG).show();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -173,7 +170,6 @@ public class LoginScreen extends Activity {
                         doLogin(userName, password);
                     }
                 });
-                Toast.makeText(LoginScreen.this, error.toString(), Toast.LENGTH_LONG).show();
             }
         }) {
             @Override

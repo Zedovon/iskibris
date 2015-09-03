@@ -133,8 +133,6 @@ public class SignUp extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        //TODO: Test toast
-                        Toast.makeText(SignUp.this, response, Toast.LENGTH_LONG).show();
                         signupProgress.hide();
                         switch (response.trim()){
                             case "SUCCESS":

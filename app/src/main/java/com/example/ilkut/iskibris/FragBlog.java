@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -101,8 +100,7 @@ public class FragBlog extends android.support.v4.app.Fragment {
             mOperations.fetchBlogPosts(true);   //Fetch the blog posts, and put them into the SingletonCache
         }
         else {
-            Toast.makeText(mContext, "Blog Posts Loaded", Toast.LENGTH_LONG).show();                                //Load
-            populateListView(SingletonCache.getInstance().getBlogPostsCache());
+            populateListView(SingletonCache.getInstance().getBlogPostsCache());                                     //Load
         }
 
         return view;

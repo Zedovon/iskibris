@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -73,7 +72,7 @@ public class FragUserResumes extends android.support.v4.app.Fragment {
         mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mOperations.setResponseListener(new Response.Listener<String>() {
+           /*     mOperations.setResponseListener(new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         mOperations.onRequestResponse(response, new ResponseOperations.ImageResponseListener() {
@@ -97,8 +96,8 @@ public class FragUserResumes extends android.support.v4.app.Fragment {
                             }
                         });
                     }
-                });
-                mOperations.fetchUserResumes(params, false);
+                });*/
+                mOperations.fetchUserResumes(params, true);
             }
         });
 
@@ -106,7 +105,6 @@ public class FragUserResumes extends android.support.v4.app.Fragment {
         if (SingletonCache.getInstance().getUserResumesCache().isEmpty()) {
             mOperations.fetchUserResumes(params, true);   //Fetch the user resumes, and put them into the SingletonCache
         } else {
-            Toast.makeText(mContext, "User Resumes Loaded", Toast.LENGTH_LONG).show();
             populateListView(SingletonCache.getInstance().getUserResumesCache());
         }
 
@@ -136,13 +134,14 @@ public class FragUserResumes extends android.support.v4.app.Fragment {
         if (itemID != null) {
             for (UserResume i : SingletonCache.getInstance().getUserResumesCache()) {
                 if (i.getPostID().equals(itemID)) {
-
-                    FragDisplayResume mDisplay = new FragDisplayResume();
-                    Bundle mBundle = new Bundle();
-                    mBundle.putString("postID", itemID);
-                    mDisplay.setArguments(mBundle);
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, mDisplay).addToBackStack(null).commit();
-                    break;
+                    if(i.getCandidatePhoto() != null) {
+                        FragDisplayResume mDisplay = new FragDisplayResume();
+                        Bundle mBundle = new Bundle();
+                        mBundle.putString("postID", itemID);
+                        mDisplay.setArguments(mBundle);
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, mDisplay).addToBackStack(null).commit();
+                        break;
+                    }
                 }
             }
         } else {
