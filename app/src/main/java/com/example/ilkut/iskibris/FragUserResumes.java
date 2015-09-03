@@ -97,7 +97,7 @@ public class FragUserResumes extends android.support.v4.app.Fragment {
                         });
                     }
                 });*/
-                mOperations.fetchUserResumes(params, true);
+                //mOperations.fetchUserResumes(params, true);
             }
         });
 
