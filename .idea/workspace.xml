@@ -10,7 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd04b5ad-7e40-4ae7-a829-ce74662f8aab" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragUserResumes.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragUserResumes.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="iskibris.iws" />
@@ -94,13 +93,12 @@
       <file leaf-file-name="FragUserResumes.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragUserResumes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70108694">
-              <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6086956">
+              <caret line="100" column="13" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
               <folding>
                 <element signature="e#2087#2391#0" expanded="true" />
                 <element signature="e#2390#2391#0" expanded="true" />
                 <element signature="e#2960#4523#0" expanded="true" />
-                <element signature="e#4522#4523#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -149,6 +147,11 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Zedovon &lt;ilkut@yahoo.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
@@ -1834,6 +1837,13 @@
       <option name="number" value="Default" />
       <updated>1441185364649</updated>
     </task>
+    <task id="LOCAL-00001" summary="Bug fixes">
+      <created>1441265535393</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1441265535393</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1888,6 +1898,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2204,13 +2218,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragUserResumes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70108694">
-          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6086956">
+          <caret line="100" column="13" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
           <folding>
             <element signature="e#2087#2391#0" expanded="true" />
             <element signature="e#2390#2391#0" expanded="true" />
             <element signature="e#2960#4523#0" expanded="true" />
-            <element signature="e#4522#4523#0" expanded="true" />
           </folding>
         </state>
       </provider>
