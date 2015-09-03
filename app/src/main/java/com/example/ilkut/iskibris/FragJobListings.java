@@ -54,11 +54,18 @@ public class FragJobListings extends android.support.v4.app.Fragment {
 
 
         final JobListingsOperations mOperations = new JobListingsOperations(mContext, URL, SingletonCache.getInstance().getJobListingsCache());
+
         mOperations.setResponseListener(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                mOperations.onRequestResponse(response, new ResponseOperations.ImageResponseListener() {
+                    @Override
+                    public void onImageReceived() {
+                        populateListView(SingletonCache.getInstance().getJobListingsCache());
+                    }
+                }, true);
 
-                if (response.endsWith("SUCCESS")) {                 //TODO: Server doesn't response!
+              /*  if (response.endsWith("SUCCESS")) {                 //TODO: Server doesn't response!
                     mOperations.onRequestResponse(response, new ResponseOperations.ImageResponseListener() {
                         @Override
                         public void onImageReceived() {
@@ -74,7 +81,7 @@ public class FragJobListings extends android.support.v4.app.Fragment {
                             mDialog.cancel();
                         }
                     });
-                }
+                }*/
             }
 
         });
@@ -83,39 +90,9 @@ public class FragJobListings extends android.support.v4.app.Fragment {
         mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mOperations.setResponseListener(new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        mOperations.onRequestResponse(response, new ResponseOperations.ImageResponseListener() {
-                            @Override
-                            public void onImageReceived() {
-                                populateListView(SingletonCache.getInstance().getJobListingsCache());
-                                mRefreshLayout.setRefreshing(false);
-                            }
-                        }, false);
-                    }
-                });
-                mOperations.setResponseErrorListener(new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        mRefreshLayout.setRefreshing(false);
-                        ResponseOperations.onRequestErrorRespone(mContext, error, new ResponseOperations.TryAgainAction() {
-                            @Override
-                            public void onTryAgain() {
-                                mRefreshLayout.setRefreshing(true);
-                                mOperations.fetchJobListings(params, false);
-                            }
-                        });
-                    }
-                });
                 mOperations.fetchJobListings(params, false);
             }
         });
-
-
-
-
-
 
         mOperations.setResponseErrorListener(new Response.ErrorListener() {
             @Override
