@@ -106,14 +106,12 @@ public class FragUserResumes extends android.support.v4.app.Fragment {
         if (itemID != null) {
             for (UserResume i : SingletonCache.getInstance().getUserResumesCache()) {
                 if (i.getPostID().equals(itemID)) {
-                    if (i.getCandidatePhoto() != null) {
                         FragDisplayResume mDisplay = new FragDisplayResume();
                         Bundle mBundle = new Bundle();
                         mBundle.putString("postID", itemID);
                         mDisplay.setArguments(mBundle);
                         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, mDisplay).addToBackStack(null).commit();
                         break;
-                    }
                 }
             }
         } else {

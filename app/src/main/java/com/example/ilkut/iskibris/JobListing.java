@@ -1,7 +1,6 @@
 package com.example.ilkut.iskibris;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 
 public class JobListing{
     private String jobTitle;
@@ -15,7 +14,6 @@ public class JobListing{
     private String companyVideo;
     private String companyTwitter;
     private String companyLogoLink;
-    private Bitmap companyLogo;
     private String companyDescription;
     private String companyFacebook;
     private String companyGoogle;
@@ -41,7 +39,6 @@ public class JobListing{
         this.companyVideo = "";
         this.companyTwitter = "";
         this.companyLogoLink = "";
-        //this.companyLogo = null;
         this.companyDescription = "";
         this.companyFacebook = "";
         this.companyGoogle = "";
@@ -126,20 +123,6 @@ public class JobListing{
 
     public void appendCompanyLogoLink(String companyLogo) {
         this.companyLogoLink += companyLogo;
-    }
-
-    /***
-     * Set the company logo manually, does not download the image from the companyLogoLink
-     * Use setCompanyLogoFromURL with  the companyLogoLink as the parameter to download and set the
-     * company logo from the companyLogoLink
-     * @param setCompanyLogo Company logo to be set as Bitmap
-     */
-    public void setCompanyLogo(Bitmap setCompanyLogo){
-        companyLogo = setCompanyLogo;
-    }
-
-    public Bitmap getCompanyLogo() {
-        return companyLogo;
     }
 
     public String getCompanyTagline() {

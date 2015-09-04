@@ -1,7 +1,5 @@
 package com.example.ilkut.iskibris;
 
-import android.graphics.Bitmap;
-
 import java.util.ArrayList;
 
 public class UserResume{
@@ -13,7 +11,6 @@ public class UserResume{
     private String candidateName;
     private String candidateEmail;
     private String candidateTitle;
-    private Bitmap candidatePhoto;
     private String candidatePhotoLink;
     private String postID;
 
@@ -46,14 +43,6 @@ public class UserResume{
 
     public void appendPostID(String postID) {
         this.postID += postID;
-    }
-
-    public Bitmap getCandidatePhoto() {
-        return candidatePhoto;
-    }
-
-    public void setCandidatePhoto(Bitmap canditPhoto) {
-        candidatePhoto = canditPhoto;
     }
 
     public String getCandidatePhotoLink() {

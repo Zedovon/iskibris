@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 
 public class FragDisplayJobListing extends android.support.v4.app.Fragment {
 
@@ -92,10 +94,8 @@ public class FragDisplayJobListing extends android.support.v4.app.Fragment {
         }
 
 
-
-
         try {
-            dJobCompanyLogo.setImageBitmap(displayJobListing.getCompanyLogo());
+            Picasso.with(mContext).load(displayJobListing.getCompanyLogoLink()).into(dJobCompanyLogo);
             dJobTitle.setText(displayJobListing.getJobTitle());
 
             dJobDescription.setText(Html.fromHtml(displayJobListing.getDescription()));     //TODO: Are you sure that's all the text views that will be Html formatted

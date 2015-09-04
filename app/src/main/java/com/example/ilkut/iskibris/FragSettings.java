@@ -62,6 +62,7 @@ public class FragSettings extends android.support.v4.app.Fragment {
         rv.setHasFixedSize(true);
 
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        llm.setReverseLayout(true);
         rv.setLayoutManager(llm);
 
         JobListingsAdapterRV RVADAPTER = new JobListingsAdapterRV(SingletonCache.getInstance().getJobListingsCache());

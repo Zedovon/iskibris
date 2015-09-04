@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 public class FragDisplayResume extends android.support.v4.app.Fragment {
 
     ImageView dResCandidatePhoto;
@@ -65,7 +67,7 @@ public class FragDisplayResume extends android.support.v4.app.Fragment {
             mDialog.show();
         }
 
-        dResCandidatePhoto = (ImageView) view.findViewById(R.id.dResumeCandidPhoto);
+       dResCandidatePhoto = (ImageView) view.findViewById(R.id.dResumeCandidPhoto);
         dResTitle = (TextView) view.findViewById(R.id.dResumeTitle);
         dResDescription = (TextView) view.findViewById(R.id.dResumeDescription);
         dResContactButton = (Button) view.findViewById(R.id.dResumeContactButton);
@@ -106,7 +108,7 @@ public class FragDisplayResume extends android.support.v4.app.Fragment {
         }
 
         try {
-            dResCandidatePhoto.setImageBitmap(displayUserResume.getCandidatePhoto());
+            Picasso.with(mContext).load(displayUserResume.getCandidatePhotoLink()).into(dResCandidatePhoto);
             dResPubDate.setText(displayUserResume.getPubDate());
             dResLocation.setText(displayUserResume.getLocation());
             dResCandidateName.setText(displayUserResume.getCandidateName());

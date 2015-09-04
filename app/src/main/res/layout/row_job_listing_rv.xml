@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:padding="16dp"
     >
 
 
@@ -9,12 +8,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/cv"
+            android:padding="2dp"
             >
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
                 >
 
                 <ImageView
@@ -31,12 +30,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/company_name"
-                    android:layout_toRightOf="@+id/person_photo"
-                    android:layout_alignParentTop="true"
                     android:textSize="30sp"
                     android:text="Flower"
                     android:textColor="@color/abc_input_method_navigation_guard"
-                    />
+                    android:layout_below="@+id/job_title"
+                    android:layout_toRightOf="@+id/logo_photo"
+                    android:layout_toEndOf="@+id/logo_photo" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -44,27 +43,33 @@
                     android:id="@+id/job_title"
                     android:text="25"
                     android:textColor="@color/abc_input_method_navigation_guard"
-                    />
+                    android:layout_marginBottom="179dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignRight="@+id/logo_photo"
+                    android:layout_alignEnd="@+id/logo_photo" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/job_type"
-                    android:layout_toRightOf="@+id/person_photo"
-                    android:layout_below="@+id/person_name"
                     android:text="25"
                     android:textColor="@color/abc_input_method_navigation_guard"
-                    />
+                    android:layout_below="@+id/company_name"
+                    android:layout_toRightOf="@+id/job_location"
+                    android:layout_toEndOf="@+id/job_location"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginStart="14dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/job_location"
-                    android:layout_toRightOf="@+id/person_photo"
-                    android:layout_below="@+id/person_name"
+
                     android:text="25"
                     android:textColor="@color/abc_input_method_navigation_guard"
-                    />
+                    android:layout_below="@+id/company_name"
+                    android:layout_toRightOf="@+id/logo_photo"
+                    android:layout_toEndOf="@+id/logo_photo" />
 
 
             </RelativeLayout>

@@ -122,14 +122,12 @@ public class FragJobListings extends android.support.v4.app.Fragment {
         if (itemID != null) {
             for (JobListing i : SingletonCache.getInstance().getJobListingsCache()) {
                 if (i.getPostID().equals(itemID)) {
-                    if (i.getCompanyLogo() != null) {
                         FragDisplayJobListing mDisplay = new FragDisplayJobListing();
                         Bundle mBundle = new Bundle();
                         mBundle.putString("postID", itemID);
                         mDisplay.setArguments(mBundle);
                         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, mDisplay).addToBackStack(null).commit();
                         break;
-                    }
                 }
             }
         } else {
