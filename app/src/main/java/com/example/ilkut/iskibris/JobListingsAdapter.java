@@ -42,7 +42,7 @@ public class JobListingsAdapter extends ArrayAdapter<JobListing> {
         final ImageView mImageView = (ImageView) convertView.findViewById(R.id.jobListingImage);
 
         if (jobListing.getCompanyLogoLink() != null && !(jobListing.getCompanyLogoLink().trim().equals(""))) {
-            Picasso.with(mContext).load(jobListing.getCompanyLogoLink()).into(new Target() {
+            Picasso.with(mContext).load(jobListing.getCompanyLogoLink()).resizeDimen(100,100).into(new Target() {
                 @Override
                 public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
                     jobListing.setCompanyLogo(bitmap);
