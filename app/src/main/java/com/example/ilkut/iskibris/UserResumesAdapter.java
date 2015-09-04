@@ -1,12 +1,17 @@
 package com.example.ilkut.iskibris;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 
@@ -34,8 +39,28 @@ public class UserResumesAdapter extends ArrayAdapter<UserResume> {
         //TODO: IMAGE URL!
         final ImageView mImage = (ImageView) convertView.findViewById(R.id.userResumeImage);
 
+        if (userResume.getCandidatePhotoLink() != null && !(userResume.getCandidatePhotoLink().trim().equals(""))) {
+            Picasso.with(getContext()).load(userResume.getCandidatePhotoLink()).into(new Target() {                 //TODO: Context problem here!
+                @Override
+                public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
+                    userResume.setCandidatePhoto(bitmap);
+                    mImage.setImageBitmap(bitmap);
+                }
 
-            mImage.setImageBitmap(userResume.getCandidatePhoto());      //Photo is already downloaded, set the photo and at the same time, the texts, so that there is no delay
+                @Override
+                public void onBitmapFailed(Drawable drawable) {
+                    //TODO: Error Image
+                }
+
+                @Override
+                public void onPrepareLoad(Drawable drawable) {
+                    //TODO: Loading Image
+                }
+            });
+        } else {
+            //TODO: default image
+        }
+
             mTitle.setText(userResume.getTitle());
             mName.setText(userResume.getCandidateName());
             mLocation.setText(userResume.getLocation());

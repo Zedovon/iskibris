@@ -4,15 +4,10 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.widget.ImageView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.StringRequest;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -61,9 +56,8 @@ public class UserResumesOperations {
         mErrorResponse = mErrorListener;
     }
 
-    public void onRequestResponse(String response, ResponseOperations.ImageResponseListener mListener, Boolean useProgressDialog) {
+    public void onRequestResponse(String response, Boolean useProgressDialog) {
         ProcessXMLUserResumes(response);
-        fetchUserResumeImages(mListener);
         if(useProgressDialog){
             mPDialog.cancel();
         }
@@ -265,29 +259,5 @@ public class UserResumesOperations {
     }
 
     //endregion
-
-    private void fetchUserResumeImages(final ResponseOperations.ImageResponseListener mListener){
-        for(final UserResume i: mUserResumesCache){
-            if (i.getCandidatePhotoLink() != null && !(i.getCandidatePhotoLink().trim().equals(""))) {
-                ImageRequest request = new ImageRequest(i.getCandidatePhotoLink(),
-                        new Response.Listener<Bitmap>() {
-                            @Override
-                            public void onResponse(Bitmap bitmap) {
-                                i.setCandidatePhoto(bitmap);
-                                mListener.onImageReceived();
-                            }
-                        }, 0, 0, ImageView.ScaleType.CENTER, null,
-                        new Response.ErrorListener() {
-                            public void onErrorResponse(VolleyError error) {
-                                i.setCandidatePhoto(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_drawer, null));
-                            }
-                        });
-                SingletonRequest.getInstance(mContext).addToRequestQueue(request);
-            } else {
-                //TODO: default image
-            }
-        }
-    }
-
 
 }

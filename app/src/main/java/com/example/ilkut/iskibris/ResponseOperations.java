@@ -18,9 +18,6 @@ public class ResponseOperations {
     public interface TryAgainAction {
         void onTryAgain();
     }
-    public interface ImageResponseListener{
-        void onImageReceived();
-    }
 
     public static String SanitizeText(String text) {
         text = text.replace("&nbsp;", " ");

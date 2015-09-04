@@ -64,33 +64,9 @@ public class FragBlog extends android.support.v4.app.Fragment {
             }
         });
 
-
-
-
-
-
         mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mOperations.setResponseListener(new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        mOperations.onRequestResponse(response, false);
-                    }
-                });
-                mOperations.setResponseErrorListener(new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        mRefreshLayout.setRefreshing(false);
-                        ResponseOperations.onRequestErrorRespone(mContext, error, new ResponseOperations.TryAgainAction() {
-                            @Override
-                            public void onTryAgain() {
-                                mRefreshLayout.setRefreshing(true);
-                                mOperations.fetchBlogPosts(false);
-                            }
-                        });
-                    }
-                });
                 mOperations.fetchBlogPosts(false);
             }
         });

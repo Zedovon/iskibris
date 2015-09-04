@@ -46,12 +46,9 @@ public class FragHomeEmployee extends android.support.v4.app.Fragment {
         mOperations.setResponseListener(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                mOperations.onRequestResponse(response, new ResponseOperations.ImageResponseListener() {
-                    @Override
-                    public void onImageReceived() {
-                        populateListView(SingletonCache.getInstance().getJobListingsCache());
-                    }
-                }, true);
+                mOperations.onRequestResponse(response,true);
+                populateListView(SingletonCache.getInstance().getJobListingsCache());
+                mRefreshLayout.setRefreshing(false);
             }
         });
         mOperations.setResponseErrorListener(new Response.ErrorListener() {
@@ -66,42 +63,12 @@ public class FragHomeEmployee extends android.support.v4.app.Fragment {
             }
         });
 
-
-
-
         mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mOperations.setResponseListener(new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        mOperations.onRequestResponse(response, new ResponseOperations.ImageResponseListener() {
-                            @Override
-                            public void onImageReceived() {
-                                mRefreshLayout.setRefreshing(false);
-                                populateListView(SingletonCache.getInstance().getJobListingsCache());
-                            }
-                        }, false);
-                    }
-                });
-                mOperations.setResponseErrorListener(new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        mRefreshLayout.setRefreshing(false);
-                        ResponseOperations.onRequestErrorRespone(mContext, error, new ResponseOperations.TryAgainAction() {
-                            @Override
-                            public void onTryAgain() {
-                                mRefreshLayout.setRefreshing(true);
-                                mOperations.fetchJobListings(params, false);
-                            }
-                        });
-                    }
-                });
-
                 mOperations.fetchJobListings(params, false);
             }
         });
-
 
 
 
@@ -135,14 +102,12 @@ public class FragHomeEmployee extends android.support.v4.app.Fragment {
         if (itemID != null) {
             for (JobListing i : SingletonCache.getInstance().getJobListingsCache()) {
                 if (i.getPostID().equals(itemID)) {
-                    if(i.getCompanyLogo() != null){
                         FragDisplayJobListing mDisplay = new FragDisplayJobListing();
                         Bundle mBundle = new Bundle();
                         mBundle.putString("postID", itemID);
                         mDisplay.setArguments(mBundle);
                         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, mDisplay).addToBackStack(null).commit();
                         break;
-                    }
                 }
             }
         } else {
