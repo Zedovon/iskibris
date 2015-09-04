@@ -58,12 +58,12 @@ public class FragJobListings extends android.support.v4.app.Fragment {
         mOperations.setResponseListener(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                mOperations.onRequestResponse(response, new ResponseOperations.ImageResponseListener() {
+                mOperations.onRequestResponse(response, true, new ResponseOperations.ImageResponseListener() {
                     @Override
                     public void onImageReceived() {
                         populateListView(SingletonCache.getInstance().getJobListingsCache());
                     }
-                }, true);
+                });
 
               /*  if (response.endsWith("SUCCESS")) {                 //TODO: Server doesn't response!
                     mOperations.onRequestResponse(response, new ResponseOperations.ImageResponseListener() {
@@ -141,7 +141,7 @@ public class FragJobListings extends android.support.v4.app.Fragment {
         if (itemID != null) {
             for (JobListing i : SingletonCache.getInstance().getJobListingsCache()) {
                 if (i.getPostID().equals(itemID)) {
-                    if(i.getCompanyLogo() != null) {
+                    if (i.getCompanyLogo() != null) {
                         FragDisplayJobListing mDisplay = new FragDisplayJobListing();
                         Bundle mBundle = new Bundle();
                         mBundle.putString("postID", itemID);

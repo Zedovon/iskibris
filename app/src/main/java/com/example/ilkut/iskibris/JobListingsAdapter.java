@@ -12,9 +12,13 @@ import java.util.ArrayList;
 
 public class JobListingsAdapter extends ArrayAdapter<JobListing> {
 
+    Context mContext;
+
     public JobListingsAdapter(Context context, ArrayList<JobListing> jobListings) {
         super(context, 0, jobListings);
+        mContext = context;
     }
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -31,13 +35,14 @@ public class JobListingsAdapter extends ArrayAdapter<JobListing> {
 
         //TODO: IMAGE URL!
         final ImageView mImageView = (ImageView) convertView.findViewById(R.id.jobListingImage);
+        mImageView.setImageBitmap(jobListing.getCompanyLogo());
 
-            mImageView.setImageBitmap(jobListing.getCompanyLogo());         //TODO: Default image -> default value when set in constructor.
-            mTitle.setText(jobListing.getJobTitle());
-            mPubDate.setText(jobListing.getPubDate());
-            mExpDate.setText(jobListing.getJobExpires());
-            //TODO: Filled!
+        mTitle.setText(jobListing.getJobTitle());
+        mPubDate.setText(jobListing.getPubDate());
+        mExpDate.setText(jobListing.getJobExpires());
+        //TODO: Filled!
 
         return convertView;
     }
+
 }

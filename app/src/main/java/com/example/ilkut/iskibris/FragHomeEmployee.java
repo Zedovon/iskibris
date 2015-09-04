@@ -46,12 +46,12 @@ public class FragHomeEmployee extends android.support.v4.app.Fragment {
         mOperations.setResponseListener(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                mOperations.onRequestResponse(response, new ResponseOperations.ImageResponseListener() {
+                mOperations.onRequestResponse(response,true, new ResponseOperations.ImageResponseListener() {
                     @Override
                     public void onImageReceived() {
                         populateListView(SingletonCache.getInstance().getJobListingsCache());
                     }
-                }, true);
+                });
             }
         });
         mOperations.setResponseErrorListener(new Response.ErrorListener() {

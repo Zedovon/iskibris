@@ -74,12 +74,12 @@ public class FragSearchJob extends android.support.v4.app.Fragment {
         mOperations.setResponseListener(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                mOperations.onRequestResponse(response, new ResponseOperations.ImageResponseListener() {
+                mOperations.onRequestResponse(response,true, new ResponseOperations.ImageResponseListener() {
                     @Override
                     public void onImageReceived() {
                         mListener.setExternalFragment(FragListener.ExternalFragment.SEARCH_JOBS_RESULTS);
                     }
-                }, true);
+                });
             }
         });
 

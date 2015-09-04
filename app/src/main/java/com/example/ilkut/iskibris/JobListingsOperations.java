@@ -5,15 +5,14 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.widget.ImageView;
+import android.graphics.drawable.Drawable;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -64,7 +63,7 @@ public class JobListingsOperations {
         mErrorResponse = mErrorListener;
     }
 
-    public void onRequestResponse(String response, ResponseOperations.ImageResponseListener mListener, Boolean useProgressDialog) {
+    public void onRequestResponse(String response,  Boolean useProgressDialog, ResponseOperations.ImageResponseListener mListener) {
         ProcessXMLJobListings(response);
         fetchJobListingImages(mListener);
         if(useProgressDialog){
@@ -233,20 +232,23 @@ public class JobListingsOperations {
     private void fetchJobListingImages(final ResponseOperations.ImageResponseListener mListener){
         for(final JobListing i: mJobListings){         //Use the mJobListings here.
             if (i.getCompanyLogoLink() != null && !(i.getCompanyLogoLink().trim().equals(""))) {
-                ImageRequest request = new ImageRequest(i.getCompanyLogoLink(),
-                        new Response.Listener<Bitmap>() {
-                            @Override
-                            public void onResponse(Bitmap bitmap) {
-                                i.setCompanyLogo(bitmap);
-                                mListener.onImageReceived();
-                            }
-                        }, 0, 0, ImageView.ScaleType.CENTER, null,
-                        new Response.ErrorListener() {
-                            public void onErrorResponse(VolleyError error) {
-                                i.setCompanyLogo(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_drawer, null));
-                            }
-                        });
-                SingletonRequest.getInstance(mContext).addToRequestQueue(request);
+                Picasso.with(mContext).load(i.getCompanyLogoLink()).into(new Target() {
+                    @Override
+                    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
+                        i.setCompanyLogo(bitmap);
+                        mListener.onImageReceived();
+                    }
+
+                    @Override
+                    public void onBitmapFailed(Drawable drawable) {
+                        //TODO: Error Image
+                    }
+
+                    @Override
+                    public void onPrepareLoad(Drawable drawable) {
+                        //TODO: Loading Image
+                    }
+                });
             } else {
                 //TODO: default image
             }
