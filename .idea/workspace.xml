@@ -10,17 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd04b5ad-7e40-4ae7-a829-ce74662f8aab" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragDisplayJobListing.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragDisplayJobListing.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragDisplayResume.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragDisplayResume.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragJobListings.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragJobListings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragSettings.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragSettings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragUserResumes.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragUserResumes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListing.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListing.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListingsAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListingsAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/UserResume.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/UserResume.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/UserResumesAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/UserResumesAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/frag_settings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/frag_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_job_listing_rv.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_job_listing_rv.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="iskibris.iws" />
@@ -73,7 +62,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="60" column="73" selection-start-line="60" selection-start-column="73" selection-end-line="60" selection-end-column="73" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,8 +75,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49707603">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.65252525">
+              <caret line="31" column="50" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -1520,10 +1511,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1050" />
+    <option name="width" value="960" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -2035,7 +2024,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441371101282</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Picture cache removed, use Picasso's cache instead. Downloading images is faster now.">
+      <created>1441377661972</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1441377661972</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2048,8 +2043,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="960" height="1032" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2063,13 +2058,13 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31729668" sideWeight="0.51122993" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15882353" sideWeight="0.50598294" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3130734" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33562428" sideWeight="0.48877007" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34269005" sideWeight="0.48877007" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.09144385" sideWeight="0.49324325" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973261" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21925133" sideWeight="0.4940171" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45964125" sideWeight="0.4940171" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32187858" sideWeight="0.48922414" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.09144385" sideWeight="0.5067568" order="4" side_tool="true" content_ui="tabs" />
@@ -2097,7 +2092,8 @@
     <MESSAGE value="Preparing to implement Picasso" />
     <MESSAGE value="Preparing to implement the Recycler View" />
     <MESSAGE value="Picasso fully implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Picasso fully implemented" />
+    <MESSAGE value="Picture cache removed, use Picasso's cache instead. Downloading images is faster now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Picture cache removed, use Picasso's cache instead. Downloading images is faster now." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2132,6 +2128,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2247,6 +2244,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1788" column="0" selection-start-line="1788" selection-start-column="0" selection-end-line="1788" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2356,6 +2354,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.08510638">
           <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding>
+            <element signature="method#isReplacable#0;class#ResponseOperations#0" expanded="false" />
+            <element signature="method#addFormattingTags#0;class#ResponseOperations#0" expanded="false" />
+            <element signature="method#parseErrorCode#0;class#ResponseOperations#0" expanded="false" />
+            <element signature="method#onRequestErrorRespone#0;class#ResponseOperations#0" expanded="false" />
+            <element signature="method#EncodeString#0;class#ResponseOperations#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2363,6 +2368,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15425532">
           <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2370,6 +2376,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24468085">
           <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2398,6 +2405,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.56489944">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2405,6 +2413,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25411335">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2412,6 +2421,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9012797">
           <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2419,6 +2429,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.61608773">
           <caret line="125" column="5" selection-start-line="125" selection-start-column="5" selection-end-line="125" selection-end-column="5" />
+          <folding>
+            <element signature="e#1891#1892#0" expanded="false" />
+            <element signature="e#1938#1939#0" expanded="false" />
+            <element signature="e#2683#2684#0" expanded="false" />
+            <element signature="e#2734#2735#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2426,6 +2442,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.976234">
           <caret line="129" column="30" selection-start-line="129" selection-start-column="30" selection-end-line="129" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2433,6 +2450,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="97" column="9" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2440,6 +2458,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="58" column="46" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
+          <folding>
+            <element signature="e#2388#2614#0" expanded="false" />
+            <element signature="e#2613#2614#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2447,6 +2469,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.06764168">
           <caret line="92" column="42" selection-start-line="92" selection-start-column="42" selection-end-line="92" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2454,6 +2477,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5959781">
           <caret line="71" column="20" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2461,7 +2485,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="60" column="73" selection-start-line="60" selection-start-column="73" selection-end-line="60" selection-end-column="73" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2481,8 +2507,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49707603">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.65252525">
+          <caret line="31" column="50" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="50" />
           <folding />
         </state>
       </provider>
