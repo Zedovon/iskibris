@@ -56,12 +56,7 @@ public class FragSearchResume extends android.support.v4.app.Fragment {
         mOperations.setResponseListener(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                mOperations.onRequestResponse(response, new ResponseOperations.ImageResponseListener() {
-                    @Override
-                    public void onImageReceived() {
-                        mListener.setExternalFragment(FragSearchJob.FragListener.ExternalFragment.SEARCH_RESUMES_RESULTS);
-                    }
-                }, true);
+                mOperations.onRequestResponse(response,true);
             }
         });
 

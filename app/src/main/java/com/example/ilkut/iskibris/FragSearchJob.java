@@ -26,13 +26,13 @@ public class FragSearchJob extends android.support.v4.app.Fragment {
     Context mContext;
     FragListener mListener;
 
-    public interface FragListener{
+    public interface FragListener {
 
-         enum ExternalFragment{
+        enum ExternalFragment {
             SEARCH_JOBS_RESULTS,
-             SEARCH_JOBS_SCREEN,
-             SEARCH_RESUMES_RESULTS,
-             SEARCH_RESUMES_SCREEN
+            SEARCH_JOBS_SCREEN,
+            SEARCH_RESUMES_RESULTS,
+            SEARCH_RESUMES_SCREEN
         }
 
         void setExternalFragment(ExternalFragment frag);
@@ -44,7 +44,6 @@ public class FragSearchJob extends android.support.v4.app.Fragment {
         super.onAttach(activity);
         mListener = (FragListener) activity;
     }
-
 
 
     @Nullable
@@ -71,18 +70,14 @@ public class FragSearchJob extends android.support.v4.app.Fragment {
 
         final String URL = getResources().getString(R.string.URL_SEARCH_JOBS);
         final JobListingsOperations mOperations = new JobListingsOperations(mContext, URL, SingletonCache.getInstance().getSearchJobListingsCache());
+
+
         mOperations.setResponseListener(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                mOperations.onRequestResponse(response,true, new ResponseOperations.ImageResponseListener() {
-                    @Override
-                    public void onImageReceived() {
-                        mListener.setExternalFragment(FragListener.ExternalFragment.SEARCH_JOBS_RESULTS);
-                    }
-                });
+                mOperations.onRequestResponse(response, true);
             }
         });
-
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override

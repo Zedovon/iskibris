@@ -48,12 +48,9 @@ public class FragUserResumes extends android.support.v4.app.Fragment {
         mOperations.setResponseListener(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                mOperations.onRequestResponse(response, new ResponseOperations.ImageResponseListener() {
-                            @Override
-                            public void onImageReceived() {
-                                populateListView(SingletonCache.getInstance().getUserResumesCache());
-                            }
-                        }, true);
+                mOperations.onRequestResponse(response, true);
+                populateListView(SingletonCache.getInstance().getUserResumesCache());
+                mRefreshLayout.setRefreshing(false);
             }
         });
         mOperations.setResponseErrorListener(new Response.ErrorListener() {
@@ -109,7 +106,7 @@ public class FragUserResumes extends android.support.v4.app.Fragment {
         if (itemID != null) {
             for (UserResume i : SingletonCache.getInstance().getUserResumesCache()) {
                 if (i.getPostID().equals(itemID)) {
-                    if(i.getCandidatePhoto() != null) {
+                    if (i.getCandidatePhoto() != null) {
                         FragDisplayResume mDisplay = new FragDisplayResume();
                         Bundle mBundle = new Bundle();
                         mBundle.putString("postID", itemID);

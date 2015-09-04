@@ -4,15 +4,11 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -63,9 +59,8 @@ public class JobListingsOperations {
         mErrorResponse = mErrorListener;
     }
 
-    public void onRequestResponse(String response,  Boolean useProgressDialog, ResponseOperations.ImageResponseListener mListener) {
+    public void onRequestResponse(String response,  Boolean useProgressDialog) {
         ProcessXMLJobListings(response);
-        fetchJobListingImages(mListener);
         if(useProgressDialog){
             mPDialog.cancel();
         }
@@ -228,31 +223,4 @@ public class JobListingsOperations {
                 break;
         }
     }
-
-    private void fetchJobListingImages(final ResponseOperations.ImageResponseListener mListener){
-        for(final JobListing i: mJobListings){         //Use the mJobListings here.
-            if (i.getCompanyLogoLink() != null && !(i.getCompanyLogoLink().trim().equals(""))) {
-                Picasso.with(mContext).load(i.getCompanyLogoLink()).into(new Target() {
-                    @Override
-                    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
-                        i.setCompanyLogo(bitmap);
-                        mListener.onImageReceived();
-                    }
-
-                    @Override
-                    public void onBitmapFailed(Drawable drawable) {
-                        //TODO: Error Image
-                    }
-
-                    @Override
-                    public void onPrepareLoad(Drawable drawable) {
-                        //TODO: Loading Image
-                    }
-                });
-            } else {
-                //TODO: default image
-            }
-        }
-    }
-
 }

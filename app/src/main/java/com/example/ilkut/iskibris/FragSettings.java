@@ -10,9 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class FragSettings extends android.support.v4.app.Fragment {
 
@@ -61,42 +58,16 @@ public class FragSettings extends android.support.v4.app.Fragment {
         Picasso.with(getActivity()).load("https://upload.wikimedia.org/wikipedia/commons/a/af/Quercus_robur.jpg").resize(300,300).into(im3);
         Picasso.with(getActivity()).load("https://upload.wikimedia.org/wikipedia/commons/6/68/Sorbus-torminalis.JPG").resize(300,300).into(im4);*/
 
-        RecyclerView rv = (RecyclerView) view.findViewById(R.id.recyclerView);
+        RecyclerView rv = (RecyclerView) view.findViewById(R.id.main_RV);
         rv.setHasFixedSize(true);
 
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(llm);
 
-
-
+        JobListingsAdapterRV RVADAPTER = new JobListingsAdapterRV(SingletonCache.getInstance().getJobListingsCache());
+        rv.setAdapter(RVADAPTER);
         return view;
     }
-
-
-    class Person {
-        String name;
-        String age;
-        int photoId;
-
-        Person(String name, String age, int photoId) {
-            this.name = name;
-            this.age = age;
-            this.photoId = photoId;
-        }
-    }
-
-    private List<Person> persons;
-
-    // This method creates an ArrayList that has three Person objects
-// Checkout the project associated with this tutorial on Github if
-// you want to use the same images.
-    private void initializeData(){
-        persons = new ArrayList<>();
-        persons.add(new Person("Emma Wilson", "23 years old", R.drawable.daisy_detail));
-        persons.add(new Person("Lavery Maiss", "25 years old", R.drawable.morning_glory_pool));
-        persons.add(new Person("Lillie Watts", "35 years old", R.drawable.Paikesetous_Parnu_joel));
-    }
-
 
 
 
