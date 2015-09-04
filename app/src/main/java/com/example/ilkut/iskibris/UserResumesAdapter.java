@@ -40,7 +40,7 @@ public class UserResumesAdapter extends ArrayAdapter<UserResume> {
         final ImageView mImage = (ImageView) convertView.findViewById(R.id.userResumeImage);
 
         if (userResume.getCandidatePhotoLink() != null && !(userResume.getCandidatePhotoLink().trim().equals(""))) {
-            Picasso.with(getContext()).load(userResume.getCandidatePhotoLink()).into(new Target() {                 //TODO: Context problem here!
+            Picasso.with(getContext()).load(userResume.getCandidatePhotoLink()).resizeDimen(100,100).into(new Target() {                 //TODO: Context problem here!
                 @Override
                 public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
                     userResume.setCandidatePhoto(bitmap);

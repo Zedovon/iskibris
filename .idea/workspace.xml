@@ -11,21 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd04b5ad-7e40-4ae7-a829-ce74662f8aab" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_job_listing_rv.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragDialogApply.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragDialogApply.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragHomeEmployee.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragHomeEmployee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragJobListings.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragJobListings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragSearchJob.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragSearchJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragSearchResume.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragSearchResume.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragSettings.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragSettings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragUserResumes.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragUserResumes.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListingsAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListingsAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListingsAdapterRV.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListingsAdapterRV.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListingsOperations.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListingsOperations.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/ResponseOperations.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/ResponseOperations.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/UserResumesAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/UserResumesAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/UserResumesOperations.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/UserResumesOperations.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/frag_settings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/frag_settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="iskibris.iws" />
@@ -83,15 +70,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FragUserResumes.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FragUserResumes.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragUserResumes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.71794873">
+            <state vertical-scroll-proportion="0.0">
               <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding>
                 <element signature="e#1921#2256#0" expanded="true" />
                 <element signature="e#2255#2256#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JobListingsAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListingsAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserResumesAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/UserResumesAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8406593">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1481,8 +1488,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragSettings.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListingsAdapterRV.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/ResponseOperations.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListingsAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/UserResumesAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListingsOperations.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/UserResumesOperations.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragHomeEmployee.java" />
@@ -1491,6 +1496,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragSearchJob.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragSearchResume.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragUserResumes.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListingsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/UserResumesAdapter.java" />
       </list>
     </option>
   </component>
@@ -1955,7 +1962,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441357141837</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Picasso fully implemented">
+      <created>1441370181211</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1441370181211</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2016,7 +2029,8 @@
     <MESSAGE value="Bug fixes" />
     <MESSAGE value="Preparing to implement Picasso" />
     <MESSAGE value="Preparing to implement the Recycler View" />
-    <option name="LAST_COMMIT_MESSAGE" value="Preparing to implement the Recycler View" />
+    <MESSAGE value="Picasso fully implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Picasso fully implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2373,14 +2387,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/UserResumesAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27659574">
-          <caret line="47" column="17" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragDialogApply.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2712766">
@@ -2432,14 +2438,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListingsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.87765956">
-          <caret line="63" column="9" selection-start-line="43" selection-start-column="8" selection-end-line="63" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragSearchJob.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0849558">
@@ -2463,12 +2461,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/FragUserResumes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71794873">
+        <state vertical-scroll-proportion="0.0">
           <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
             <element signature="e#1921#2256#0" expanded="true" />
             <element signature="e#2255#2256#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/JobListingsAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ilkut/iskibris/UserResumesAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8406593">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
