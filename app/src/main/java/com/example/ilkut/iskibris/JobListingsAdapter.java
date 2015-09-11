@@ -40,7 +40,6 @@ public class JobListingsAdapter extends ArrayAdapter<JobListing> {
 
         if (jobListing.getCompanyLogoLink() != null && !(jobListing.getCompanyLogoLink().trim().equals(""))) {
             Picasso.with(mContext).load(jobListing.getCompanyLogoLink()).into(mImageView);
-
         } else {
             //TODO: default image
         }
