@@ -86,6 +86,8 @@ public class FragUserResumes extends android.support.v4.app.Fragment {
 
 
     public void populateListView(ArrayList<UserResume> userResumes) {
+        mainListView.setDividerHeight(0);
+
         if (userResumes != null && !(userResumes.isEmpty())) {
             UserResumesAdapter mAdapter = new UserResumesAdapter(mContext, userResumes);
             mainListView.setAdapter(mAdapter);

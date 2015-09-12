@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@android:drawable/dialog_holo_dark_frame"
+    >
 
     <ImageView
         android:id="@+id/userResumeImage"
@@ -82,6 +84,9 @@ idle counterparts, so that they are always to the right of their idle counterpar
 
         android:layout_alignRight="@id/userResumeIdleLocationText"
         android:layout_alignEnd="@id/userResumeIdleLocationText"
+
+        android:layout_marginBottom="15dp"
+
         android:gravity="end"
 
         android:textSize="15sp" />

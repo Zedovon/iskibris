@@ -21,6 +21,7 @@ public class FragSearchResumesResults extends android.support.v4.app.Fragment {
         View view = inflater.inflate(R.layout.frag_resumes_search_results, container, false);
         mContext = getActivity();
 
+        mainListView.setDividerHeight(0);
         mainListView = (ListView) view.findViewById(R.id.searchResumesResultsListView);
 
         ArrayList<UserResume> displayUserResumes = SingletonCache.getInstance().getSearchUserResumesCache();

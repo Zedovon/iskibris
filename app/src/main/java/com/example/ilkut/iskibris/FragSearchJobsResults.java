@@ -22,6 +22,7 @@ public class FragSearchJobsResults extends android.support.v4.app.Fragment {
 
         mContext = getActivity();
 
+        mainResultsListView.setDividerHeight(0);
         mainResultsListView = (ListView) view.findViewById(R.id.searchJobsResultsListView);
         ArrayList<JobListing> mListings = SingletonCache.getInstance().getSearchJobListingsCache();
         JobListingsAdapter mAdapter = new JobListingsAdapter(mContext, mListings);

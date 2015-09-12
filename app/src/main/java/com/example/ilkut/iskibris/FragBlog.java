@@ -84,6 +84,7 @@ public class FragBlog extends android.support.v4.app.Fragment {
 
 
     public void populateListView(ArrayList<BlogPost> blogPosts) {
+        blogPostsListView.setDividerHeight(0);
 
         BlogPostsAdapter mAdapter = new BlogPostsAdapter(getActivity(), blogPosts);
         blogPostsListView.setAdapter(mAdapter);

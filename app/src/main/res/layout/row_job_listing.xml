@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:drawable/dialog_holo_dark_frame"
+    >
 
 
     <ImageView
         android:id="@+id/jobListingImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_margin="15dp" />
+        android:layout_margin="15dp"
+        />
 
     <TextView
         android:id="@+id/jobListingTitleText"
@@ -67,6 +70,9 @@
         android:layout_alignLeft="@id/jobListingImage"
         android:layout_alignStart="@id/jobListingImage"
         android:layout_below="@id/jobListingIdlePudDate"
+
+        android:layout_marginBottom="15dp"
+
         android:text="@string/row_job_listing_exp_date"
 
         android:layout_alignRight="@id/jobListingIdlePudDate"
@@ -85,11 +91,6 @@
         android:layout_alignTop="@+id/jobListingIdleExpDate"
         android:layout_toRightOf="@+id/jobListingIdleExpDate"
         android:layout_toEndOf="@+id/jobListingIdleExpDate" />
-
-
-
-
-
 
     <ImageView
         android:layout_width="18dp"

@@ -6,11 +6,17 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.internal.view.menu.ListMenuItemView;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -23,6 +29,7 @@ public class FragHomeEmployee extends android.support.v4.app.Fragment {
     AlertDialog mDialog;
     Context mContext;
     SwipeRefreshLayout mRefreshLayout;
+
 
     @Nullable
     @Override
@@ -84,6 +91,8 @@ public class FragHomeEmployee extends android.support.v4.app.Fragment {
 
 
     public void populateListView(ArrayList<JobListing> jobListings) {
+        mainListView.setDividerHeight(0);
+
         if (jobListings != null && !(jobListings.isEmpty())) {
             JobListingsAdapter mAdapter = new JobListingsAdapter(mContext, jobListings);
             mainListView.setAdapter(mAdapter);
@@ -93,9 +102,12 @@ public class FragHomeEmployee extends android.support.v4.app.Fragment {
                     onListItemClicked(position);
                 }
             });
-        }
 
+
+
+        }
     }
+
     public void onListItemClicked(int itemPosition) {
         String itemID = SingletonCache.getInstance().getJobListingByPosition(itemPosition).getPostID();
 

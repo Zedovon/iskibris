@@ -1,12 +1,18 @@
 package com.example.ilkut.iskibris;
 
 import android.content.Context;
+import android.graphics.drawable.TransitionDrawable;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -43,7 +49,6 @@ public class JobListingsAdapter extends ArrayAdapter<JobListing> {
         } else {
             //TODO: default image
         }
-
 
         mTitle.setText(jobListing.getJobTitle());
         mPubDate.setText(jobListing.getPubDate());

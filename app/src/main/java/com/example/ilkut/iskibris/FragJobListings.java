@@ -9,8 +9,11 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -101,6 +104,7 @@ public class FragJobListings extends android.support.v4.app.Fragment {
 
 
     public void populateListView(ArrayList<JobListing> jobListings) {
+        mainListView.setDividerHeight(0);
 
         if (jobListings != null && !(jobListings.isEmpty())) {
             JobListingsAdapter mAdapter = new JobListingsAdapter(mContext, jobListings);
@@ -122,7 +126,7 @@ public class FragJobListings extends android.support.v4.app.Fragment {
         if (itemID != null) {
             for (JobListing i : SingletonCache.getInstance().getJobListingsCache()) {
                 if (i.getPostID().equals(itemID)) {
-                        FragDisplayJobListing mDisplay = new FragDisplayJobListing();
+                    FragDisplayJobListing mDisplay = new FragDisplayJobListing();
                         Bundle mBundle = new Bundle();
                         mBundle.putString("postID", itemID);
                         mDisplay.setArguments(mBundle);

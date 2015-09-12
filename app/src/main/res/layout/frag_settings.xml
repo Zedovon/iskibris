@@ -4,4 +4,20 @@
     android:orientation="vertical"
     >
 
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@android:drawable/dialog_holo_light_frame"
+        >
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@android:drawable/dialog_holo_light_frame"
+        >
+
+    </LinearLayout>
+
 </LinearLayout>
